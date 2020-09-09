@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Header from "./pages/Header";
+import Portfolio from "./pages/Portfolio";
+import Resume from "./pages/Resume";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import Footer from "./pages/Footer";
+
+import resumeData from "./resumeData";
+import { StylesProvider } from "@material-ui/core/styles";
+
+class App extends Component {
+	render() {
+		return (
+			<StylesProvider injectFirst>
+				<Header resumeData={resumeData} />
+				<About resumeData={resumeData} />
+				<Resume resumeData={resumeData} />
+				<Portfolio resumeData={resumeData} />
+				<Contact />
+				<Footer />
+			</StylesProvider>
+		);
+	}
 }
 
 export default App;
