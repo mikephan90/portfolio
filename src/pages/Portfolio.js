@@ -6,17 +6,17 @@ import SectionHeader from "../components/SectionHeader";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 
+import FeaturedProject from '../components/FeaturedProject';
+
 
 // import Natours from "./projects/Natours";
 
-const Portfolio = () => {
+const Portfolio = (props) => {
 	return (
 		<PortfolioWrapper id="portfolio">
 			<SectionHeader num="3." title="Things I've Built" />
 			{/* store info of projects into data sheet */}
-			<FeaturedPaper>asdfdsffff</FeaturedPaper>
-			<FeaturedPaper>asdfdsffff</FeaturedPaper>
-			<FeaturedPaper>asdfdsffff</FeaturedPaper>
+			<FeaturedProject>asdfdsffff</FeaturedProject>
 
 			<GridRoot>
 				<ProjectSpan>Other Projects</ProjectSpan>

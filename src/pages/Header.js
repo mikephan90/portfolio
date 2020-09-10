@@ -2,8 +2,6 @@ import React, { Fragment } from "react";
 
 
 import styled from "styled-components";
-import { Link } from "react-scroll";
-
 import Navbar from "../components/navbar";
 
 // import img from "../assets/header-background.jpg";
@@ -21,33 +19,14 @@ const Header = (props) => {
 					<div className="banner-text">
 						{/* <Hello>Hello World!</Hello> */}
 						<DescriptionH3>My name is</DescriptionH3>
-						<NameH2>Mike Phan.</NameH2>
+						<NameH2>{resumeData.name}.</NameH2>
 						<DescripionH2>I like to build things.</DescripionH2>
 						<Bio>
-							I'm an aspiring software engineer located in Columbus, OH specializing in building websites
-							and applications using the latest technology
+							I'm an aspiring software engineer located in {resumeData.address} specializing in building websites
+							and applications using the latest technology.
 						</Bio>
-						{/* <hr /> */}
-						{/* <ul className="social">
-							{resumeData.socialLinks.map((item) => {
-								return (
-									<li key={item.name}>
-										<a href={item.url}>
-											{" "}
-											<i className={item.className} />
-										</a>
-									</li>
-								);
-							})}
-						</ul> */}
 					</div>
 				</div>
-
-				{/* <p className="scrolldown">
-					<Link activeClass="active" to="portfolio" spy={true} smooth={true} offset={0} duration={500}>
-						<i className="fa fa-chevron-down"></i>
-					</Link>
-				</p> */}
 			</HeaderStyle>
 		</Fragment>
 	);

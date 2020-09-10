@@ -154,10 +154,9 @@ const WorkInfo = styled.div`
 
 const ResumeWrapper = styled.div`
 	display: flex;
+	justify-content: center;
 	vertical-align: center;
 	height: 50vh;
-	margin-left: 20%;
-	margin-top: 15%;
 	${"" /* background: #fff;
 	padding-top: 60px;
 	overflow: hidden;

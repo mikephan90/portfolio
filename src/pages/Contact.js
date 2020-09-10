@@ -6,7 +6,7 @@ import SectionHeader from "../components/SectionHeader";
 
 const Contact = () => {
 	return (
-		<ContactWrapper id="about">
+		<ContactWrapper id="contact">
 			<SectionHeader num="4." title="What's Next?" />
 			<ContactH1>Get in Touch!</ContactH1>
 			<ContactDesc>
@@ -38,7 +38,7 @@ export default Contact;
 const ContactDesc = styled.p`
 	justify-content: center;
 	width: 30%;
-	color: #3d3d3d;
+	color: #d3d3d3;
 	font: 14px/1.9em "Montserrat", serif;
 `;
 
@@ -50,7 +50,7 @@ const ContactH1 = styled.h1`
 const ContactWrapper = styled.div`
 	display: flex;
 	flex-direction: column;
-	height: 80vh;
+	height: 100vh;
 	text-align: center;
 	align-items: center;
     justify-content: center;

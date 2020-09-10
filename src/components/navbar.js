@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { Button } from "@material-ui/core";
 import { Link } from "react-scroll";
 import Headroom from "react-headroom";
+import ResumePDF from "../assets/mikephan-resume.pdf";
 
 export default function Navbar() {
 	return (
@@ -13,7 +14,7 @@ export default function Navbar() {
 				style={{
 					padding: "25px",
 					display: "flex",
-					justifyContent: "flex-end",
+					justifyContent: "space-between",
 					background: "#0f0f0f",
 					transition: "all 1s ease-in-out",
 					// boxShadow: "2px 2px 2px #000"
@@ -25,21 +26,27 @@ export default function Navbar() {
 				upTolerance={1}
 			>
 				<NavItems>
-					<NavSpan>1.</NavSpan>
-					<Link activeClass="current" to="home" spy={true} smooth={true} offset={0} duration={500}>
-						Home
+					<Link activeClass="active" to="home" spy={true} smooth={"easeOutQuart"} offset={-400} duration={1000} delay={150}>
+						Mike Phan
 					</Link>
-					<NavSpan>2.</NavSpan>
-					<Link activeClass="active" to="about" spy={true} smooth={true} offset={0} duration={500}>
+				</NavItems>
+				
+				<NavItems>
+					<NavSpan>1. </NavSpan>
+					<Link activeClass="active" to="about" spy={true} smooth={"easeOutQuart"} offset={-80} duration={1000} delay={150}>
 						About
 					</Link>
-					<NavSpan>3.</NavSpan>
-					<Link activeClass="active" to="resume" spy={true} smooth={true} offset={0} duration={500}>
-						Resume
+					<NavSpan>2.  </NavSpan>
+					<Link activeClass="active" to="resume" spy={true} smooth={"easeOutQuart"} offset={-80} duration={1000} delay={150}>
+						Experience
 					</Link>
-					<NavSpan>4.</NavSpan>
-					<Link activeClass="active" to="portfolio" spy={true} smooth={true} offset={0} duration={500}>
+					<NavSpan>3.  </NavSpan>
+					<Link activeClass="active" to="portfolio" spy={true} smooth={"easeOutQuart"} offset={-80} duration={1000} delay={150}>
 						Portfolio
+					</Link>
+					<NavSpan>4.  </NavSpan>
+					<Link activeClass="active" to="contact" spy={true} smooth={"easeOutQuart"} offset={20} duration={1000} delay={150}>
+						Contact
 					</Link>
 					{/* GET BUTTON STYLE HERE MATERIAL UI */}
 					<Button
@@ -49,7 +56,9 @@ export default function Navbar() {
 							marginBottom: "2px",
 						}}
 						variant="outlined" color="secondary"
-						onClick={() => { alert('clicked')}}
+						href={ResumePDF}
+
+						download="mikephan-resume.pdf"
 					>
 						Resume
 					</Button>
@@ -63,12 +72,15 @@ export default function Navbar() {
 
 const NavSpan = styled.span`
 	color: #3f3f3f;
-	margin-right: -15px;
+	margin-right: -10px;
 `;
 
 const NavItems = styled.a`
 	color: #fff;
 	cursor: pointer;
+	display: flex;
+	align-items: center;
+
 	a {
 		transition: all 0.5s ease-in-out;
 		&:hover {
@@ -86,6 +98,7 @@ const NavStyle = styled.nav`
 	z-index: 100;
 	position: fixed;
 	height: 55px;
+	justify-content: center;
 
 	ul {
 		padding: 0px;
@@ -94,6 +107,7 @@ const NavStyle = styled.nav`
 	.display {
 		color: #fff;
 		cursor: pointer;
+		width: 100%;
 
 		a {
 			padding: 8px 13px;

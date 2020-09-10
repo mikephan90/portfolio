@@ -17,7 +17,7 @@ let resumeData = {
 	],
 	aboutme: [
     "I really enjoy creating web applications through the entire stack. For me, understanding the entirety of a project lets me really be engaged. My goal is to continue my learning through developing and create exceptional work.",
-    "The journey to become a software engineer has been a long one for me. I started my career out inarchitecture after graduating from The Ohio State University (Go Bucks!) and worked in the industry for a few years. I realized how much I loved to create and build. But I found it time for something that I was more interested in.",
+    "The journey to become a software engineer has been a long one for me. I started my career out in architecture after graduating from The Ohio State University (Go Bucks!) and worked in the industry for a few years. I realized how much I loved to create and build but felt limited in what I could actually do with the profession I was in. Web applications and software is where I found those restrictions lifted.",
     "I went back to school online at Oregon State University, where I graduated with my second degree. With this, I'm eager to continue in my new career, creating and building again but this time in technology."
   ],
 	looking:
