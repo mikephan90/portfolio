@@ -5,116 +5,9 @@ import React from "react";
 
 import SectionHeader from "../components/SectionHeader";
 import styled from "styled-components";
-import resumeData from "../resumeData";
 
 const Resume = (props) => {
 	return (
-		// <ResumeWrapper id="resume">
-		// 	<div className="education">
-		// 		<div className="header-col">
-		// 			<h1>
-		// 				<span>Education</span>
-		// 			</h1>
-		// 		</div>
-		// 		<div className="main-col">
-		// 			{resumeData.education.map((item, index) => {
-		// 				return (
-		// 					<div key={index}>
-		// 						<div>
-		// 							<div>
-		// 								<h3>{item.name}</h3>
-		// 								<p className="info">
-		// 									{item.specialization} {" | "}
-		// 									<em>
-		// 										{item.MonthOfPassing} {item.YearOfPassing}
-		// 									</em>
-		// 								</p>
-		// 							</div>
-		// 						</div>
-		// 					</div>
-		// 				);
-		// 			})}
-		// 		</div>
-		// 	</div>
-
-		// 	<hr />
-
-		// 	<div className="work">
-		// 		<div className="header-col">
-		// 			<h1>
-		// 				<span>Work</span>
-		// 			</h1>
-		// 		</div>
-		// 		<div className="main-col">
-		// 			<h5>Current (Software Engineering)</h5>
-		// 			<h2>This could be you!</h2>
-		// 			<h5>Previous (Architecture)</h5>
-		// 			{resumeData.work.map((item, index) => {
-		// 				return (
-		// 					<div key={index}>
-		// 						<div>
-		// 							<h3>{item.CompanyName}</h3>
-		// 							<p className="work-info">
-		// 								{item.specialization} {" | "}
-		// 								<em>
-		// 									{item.MonthOfLeaving} {item.YearOfLeaving}
-		// 								</em>
-		// 								{/* <p>{item.Achievements}</p> */}
-		// 							</p>
-		// 						</div>
-		// 					</div>
-		// 				);
-		// 			})}
-		// 		</div>
-		// 	</div>
-
-		// 	<hr />
-		// 	<div className="skills">
-		// 		<div className="header-col">
-		// 			<h1>
-		// 				<span>Skills</span>
-		// 			</h1>
-		// 		</div>
-
-		// 		<div className="main-col">
-		// 			{/* <p>{resumeData.skillsDescription}</p> */}
-		// 			<div className="bars">
-		// 				<ul className="skill-list">
-		// 					{resumeData.skills.map((item, index) => {
-		// 						if (item.skillname === "Node.js") {
-		// 							return (
-		// 								<li key={index}>
-		// 									<span className={`bar-expand node`} />
-		// 									<em>{item.skillname}</em>
-		// 								</li>
-		// 							);
-		// 						} else if (item.skillname === "RESTful APIs") {
-		// 							return (
-		// 								<li key={index}>
-		// 									<span className={`bar-expand restfulapis`} />
-		// 									<em>{item.skillname}</em>
-		// 								</li>
-		// 							);
-		// 						} else if (item.skillname === "C/C++") {
-		// 							return (
-		// 								<li key={index}>
-		// 									<span className={`bar-expand cplusplus`} />
-		// 									<em>{item.skillname}</em>
-		// 								</li>
-		// 							);
-		// 						}
-		// 						return (
-		// 							<li key={index}>
-		// 								<span className={`bar-expand ${item.skillname.toLowerCase()}`} />
-		// 								<em>{item.skillname}</em>
-		// 							</li>
-		// 						);
-		// 					})}
-		// 				</ul>
-		// 			</div>
-		// 		</div>
-		// 	</div>
-		// </ResumeWrapper>
 		<ResumeWrapper id="resume">
 			<div>
 				<div>
@@ -124,7 +17,7 @@ const Resume = (props) => {
 					<div>
 						<h2>This could be you!</h2>
 					</div>
-					{resumeData.work.map((item, index) => {
+					{props.resumeData.work.map((item, index) => {
 						return (
 							<div key={index}>
 								<div>

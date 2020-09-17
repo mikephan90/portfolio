@@ -18,11 +18,10 @@ const Contact = () => {
 					width: "120px",
 					color: "white",
 					marginTop: "50px",
-                    borderColor: "red",
                     
 				}}
 				variant="outlined"
-				color="primary"
+				color="secondary"
 				onClick={() => {
 					alert("clicked");
 				}}

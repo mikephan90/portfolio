@@ -4,19 +4,23 @@ import styled from "styled-components";
 
 const SectionHeader = (props) => {
     return (
-        <div>
+        <SpanStyle>
             <SpanNumber>
                 {props.num}
                 <SpanContent>
                     {props.title}
                 </SpanContent>
             </SpanNumber>
-        </div>
+        </SpanStyle>
     )
 
 }
 
 export default SectionHeader;
+
+const SpanStyle = styled.div`
+    padding-bottom: 80px;
+`;
 
 const SpanNumber = styled.span`
 	color: #929292;

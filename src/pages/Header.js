@@ -1,108 +1,99 @@
-import React, { Fragment } from "react";
+import React, { useState, useEffect } from "react";
 
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 import styled from "styled-components";
-import Navbar from "../components/navbar";
+import { Button } from "@material-ui/core";
+import "../styles/transition.css";
 
 // import img from "../assets/header-background.jpg";
 
 const Header = (props) => {
 	let resumeData = props.resumeData;
-	return (
-		<Fragment>
-			<NavBar>
-				<Navbar />
-			</NavBar>
 
-			<HeaderStyle id="home">
-				<div className="banner">
-					<div className="banner-text">
-						{/* <Hello>Hello World!</Hello> */}
-						<DescriptionH3>My name is</DescriptionH3>
-						<NameH2>{resumeData.name}.</NameH2>
-						<DescripionH2>I like to build things.</DescripionH2>
-						<Bio>
-							I'm an aspiring software engineer located in {resumeData.address} specializing in building websites
-							and applications using the latest technology.
-						</Bio>
-					</div>
-				</div>
-			</HeaderStyle>
-		</Fragment>
+	const [isMounted, setIsMounted] = useState(false);
+
+	useEffect(() => {
+		const timeout = setTimeout(() => setIsMounted(true), 1000);
+		return () => clearTimeout(timeout);
+	}, []);
+
+	const intro = () => <DescriptionH3 style={{ transitionDelay: "500ms" }}>My name is</DescriptionH3>;
+	const title = () => <NameH2 style={{ transitionDelay: "600ms" }}>{resumeData.name}.</NameH2>;
+	const subtitle = () => <DescriptionH2 style={{ transitionDelay: "700ms" }}>I like to build things.</DescriptionH2>;
+	const bio = () => (
+		<Bio style={{ transitionDelay: "400ms" }}>
+			I'm an aspiring software engineer located in {resumeData.address} specializing in building websites and
+			applications using the latest technology.
+		</Bio>
+	);
+
+	const ContactButton = () => (
+		<Button
+			style={{
+				marginTop: "40px",
+				height: "40px",
+				width: "150px",
+				color: "white",
+				transitionDelay: "800ms",
+			}}
+			variant="outlined"
+			color="secondary"
+		>
+			Get in Touch!
+		</Button>
+	);
+
+
+
+	const info = [intro, title, subtitle, bio, ContactButton];
+
+	return (
+		<HeaderStyle id="home">
+			<TransitionGroup component={null}>
+				{isMounted &&
+					info.map((item, i) => (
+						<CSSTransition key={i} classNames="fadeup" timeout={1000}>
+							{item}
+						</CSSTransition>
+					))}
+			</TransitionGroup>
+		</HeaderStyle>
 	);
 };
 
 export default Header;
 
 // STYLING
-const Hello = styled.h1`
-	color: white;
-	font: 72px/1.1em "Montserrat", sans-serif;
-	font-weight: bold;
-	letter-spacing: -2px;
-	text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.8);
-	padding-bottom: 50px;
-`;
-
 const NameH2 = styled.h2`
-	color: white;
-	font: 72px/1.9em "Montserrat", serif;
-	margin-left: -3px;
-	margin-bottom: -30px;
+	color: #fff;
+	font: 60px "Montserrat", serif;
+	margin-bottom: -40px;
 `;
 
-const DescripionH2 = styled.h2`
+const DescriptionH2 = styled.h2`
 	color: #3d3d3d;
-	font: 42px/1.9em "Montserrat", serif;
-	margin-top: -30px;
-	margin-left: -3px;
+	font: 42px "Montserrat", serif;
 `;
 
 const DescriptionH3 = styled.h3`
-	color: red;
-	font: 18px/1.9em "Montserrat", serif;
-	margin-top: -30px;
-	margin-left: -3px;
-	margin-bottom: -30px;
+	color: #fff;
+	font: 18px "Montserrat", serif;
+	margin-bottom: -40px;
 `;
 
 const Bio = styled.p`
-	width: 450px;
+	text-align: justify;
+	text-justify: inter-word;
 	color: #d3d3d3;
-`;
-
-const NavBar = styled.div`
-	position: absolute;
-	top: 0;
+	width: 50%;
 `;
 
 const HeaderStyle = styled.div`
 	display: flex;
-	vertical-align: center;
-	height: 56vh;
-	margin-left: 20%;
+	flex-direction: column;
+	height: 80vh;
 	margin-top: 15%;
-
-	${'' /* .scrolldown {
-		display: flex;
-		position: absolute;
-		color: #fff;
-		font-size: 42px;
-		bottom: 0;
-
-		animation-name: ${bounce};
-		animation-duration: 2s;
-		animation-timing-function: ease-in;
-		animation-delay: 0s;
-		animation-iteration-count: infinite;
-		${"" /* animation-direction: normal;
-		animation-fill-mode: forwards;
-		animation-play-state: running; */}
-
-		transition: all 0.3s ease-in-out;
-		&:hover {
-			color: red;
-		}
-	} */}
-
+	padding-right: 20%;
+	padding-left: 20%;
 `;
