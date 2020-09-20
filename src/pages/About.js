@@ -1,25 +1,46 @@
-import React from "react";
-
+import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
+// Material UI
 import Grid from "@material-ui/core/Grid";
+// Scroll Reveal
+import { srConfig } from "../config";
+import sr from "../utils/ScrollReveal";
+// Components
 import SectionHeader from "../components/SectionHeader";
 
 const About = (props) => {
+	let resumeData = props.resumeData;
+
+	const revealContainer = useRef(null);
+	useEffect(() => sr.reveal(revealContainer.current, srConfig()), []);
+
 	return (
-		<AboutWrapper id="about">
-			<AboutHeader>
-				<SectionHeader num="1." title="about me" />
-			</AboutHeader>
+		<AboutWrapper id="about" ref={revealContainer}>
+			<SectionHeader num="1." title="about me" />
 			<Grid container spacing={3}>
 				<Grid item xs>
 					<AboutInfo>
 						<p>
-							Hello there! I'm {props.resumeData.name}, an aspiring software engineer located in{" "}
-							{props.resumeData.address}.
+							Hello there! I'm {resumeData.name}, an aspiring {resumeData.role} located in{" "}
+							{resumeData.address}.
 						</p>
-						<p>{props.resumeData.aboutme[0]}</p>
-						<p>{props.resumeData.aboutme[1]}</p>
-						<p>{props.resumeData.aboutme[2]}</p>
+						<p>
+							I really enjoy creating web applications through the entire stack. For me, understanding the
+							entirety of a project lets me really be engaged. My goal is to continue my learning through
+							developing and create exceptional work.
+						</p>
+						<p>
+							The journey to become a software engineer has been a long one for me. I started my career
+							out in architecture after graduating from The Ohio State University (Go Bucks!) and worked
+							in the industry for a few years. I realized how much I loved to create and build but felt
+							limited in what I could actually do with the profession I was in. Web applications and
+							software is where I found those restrictions lifted.
+						</p>
+						<p>
+							I went back to school online at Oregon State University, where I graduated with my second
+							degree. With this, I'm eager to continue in my new career, creating and building again but
+							this time in technology.
+						</p>
 						<div>
 							Technologies I've used and familiar with:
 							<TechList>
@@ -38,30 +59,29 @@ const About = (props) => {
 							</TechList>
 						</div>
 					</AboutInfo>
-				</Grid>
-				<Grid item xs>
-					<Photo src={require("../assets/ohiostate.jpg")} />
+					<Education>Education</Education>
 					<EducationInfo>
-						<p>Education</p>
-						<EdItem>
-							<div>
-								<LinkStyle href="https://github.com/mikephan90/portfolio">
-									Oregon State University,
-									<span> 2020</span>
-								</LinkStyle>
-								<div>B.S. Computer Science</div>
-							</div>
-						</EdItem>
-						<EdItem>
-							<div>
-								<LinkStyle href="https://github.com/mikephan90/portfolio">
-									The Ohio State University,
-									<span> 2014</span>
-								</LinkStyle>
-								<div>B.S. Architecture</div>
-							</div>
-						</EdItem>
+						{resumeData.education.map((item, i) => {
+							return (
+								<EdItem key={i}>
+									<div>
+										<LinkStyle href="https://github.com/mikephan90/portfolio">
+											{item.name}
+										</LinkStyle>
+										<div>B.S. {item.specialization}</div>
+										<div>
+											{item.MonthOfPassing} {item.YearOfPassing}
+										</div>
+									</div>
+								</EdItem>
+							);
+						})}
 					</EducationInfo>
+				</Grid>
+				<Grid item xs className="photo-container">
+					<div>
+						<img src={require("../assets/ohiostate.jpg")} className="photo" alt="" />
+					</div>
 				</Grid>
 			</Grid>
 		</AboutWrapper>
@@ -69,11 +89,6 @@ const About = (props) => {
 };
 
 export default About;
-
-const Photo = styled.img`
-	height: 30%;
-	width: 50%;
-`;
 
 const TechList = styled.ul`
 	display: flex;
@@ -86,6 +101,10 @@ const TechItem = styled.span`
 	padding-right: 45px;
 `;
 
+const Education = styled.p`
+	color: white;
+`;
+
 const EdItem = styled.li`
 	font: 12px/1.9em "Montserrat", serif;
 	list-style: none;
@@ -94,8 +113,8 @@ const EdItem = styled.li`
 
 const EducationInfo = styled.div`
 	display: flex;
-	flex-direction: column;
 	color: #fff;
+	justify-content: space-between;
 `;
 
 const LinkStyle = styled.a`
@@ -129,29 +148,39 @@ const LinkStyle = styled.a`
 	}
 `;
 
-const AboutHeader = styled.div`
-	display: flex;
-	flex-direction: row;
-	color: red;
-	font: 32px/1.9em "Montserrat", serif;
-`;
-
 const AboutInfo = styled.div`
-	align-items: right;
 	color: #d3d3d3;
 `;
 
 const AboutWrapper = styled.div`
 	display: flex;
 	flex-direction: column;
-	${"" /* TEST PURPOSE ONLY */}
-	border: 3px dashed red;
 
-	height: 100vh;
-	padding-right: 20%;
-	padding-left: 20%;
+	margin-right: 20%;
+	margin-left: 20%;
+
 	p {
 		text-align: justify;
 		text-justify: inter-word;
+	}
+
+	.photo-container {
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+	}
+
+	.photo {
+		max-width: 300px;
+		max-height: 300px;
+		border: 4px solid #ff8000;
+		border-radius: 3px;
+		background: #1e1e1e;
+		opacity: 0.5;
+		transition: all 0.5s ease-in-out;
+		&:hover {
+			opacity: 1;
+			box-shadow: 4px 1px 5px #0e0e0e;
+		}
 	}
 `;

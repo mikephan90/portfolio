@@ -1,12 +1,20 @@
-import React, { useState } from "react";
-
+import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
+// Material UI
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import ButtonBase from "@material-ui/core/ButtonBase";
+// Scroll Reveal
+import { srConfig } from "../config";
+import sr from "../utils/ScrollReveal";
 
 const FeaturedProject = (props) => {
+	const revealProjects = useRef([]);
+	useEffect(() => {
+		revealProjects.current.forEach((ref, i) => sr.reveal(ref, srConfig(i * 100)));
+	}, []);
+
 	const checkImg = () => {
 		if (props.id % 2 === 0) {
 			return true;
@@ -16,7 +24,7 @@ const FeaturedProject = (props) => {
 	};
 
 	return (
-		<FeaturedStyle>
+		<FeaturedStyle key={props.id} ref={(el) => (revealProjects.current[props.id] = el)}>
 			<Grid container>
 				{checkImg() === true ? (
 					<Grid item xs={8} sm={6} container>
@@ -25,6 +33,7 @@ const FeaturedProject = (props) => {
 						</ImageOverlay>
 					</Grid>
 				) : null}
+
 				<Grid item xs={6} sm container alignItems="center">
 					<Grid container>
 						<Grid item xs>
@@ -44,6 +53,7 @@ const FeaturedProject = (props) => {
 						</Grid>
 					</Grid>
 				</Grid>
+
 				{checkImg() === false ? (
 					<Grid item xs={8} sm={6} container>
 						<ImageOverlay>
@@ -75,11 +85,10 @@ const ImageOverlay = styled(ButtonBase)`
 
 const FeaturedStyle = styled.div`
 	color: white;
-	padding-bottom: 24vh;
+	margin-bottom: 8vh;
 	text-align: right;
 
-	${"" /* Flip the featured component for every other */}
-	&:nth-of-type(odd) {
+	&:nth-child(even) {
 		text-align: left;
 
 		.project-overline {

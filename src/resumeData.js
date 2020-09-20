@@ -16,13 +16,6 @@ let resumeData = {
 			className: "fa fa-github",
 		},
 	],
-	aboutme: [
-		"I really enjoy creating web applications through the entire stack. For me, understanding the entirety of a project lets me really be engaged. My goal is to continue my learning through developing and create exceptional work.",
-		"The journey to become a software engineer has been a long one for me. I started my career out in architecture after graduating from The Ohio State University (Go Bucks!) and worked in the industry for a few years. I realized how much I loved to create and build but felt limited in what I could actually do with the profession I was in. Web applications and software is where I found those restrictions lifted.",
-		"I went back to school online at Oregon State University, where I graduated with my second degree. With this, I'm eager to continue in my new career, creating and building again but this time in technology.",
-	],
-	looking:
-		"I'm seeking an opportunity as a developer. I'd like to consider myself a pretty fast-paced learner and can pick up concepts fairly quickly. Anything that I don't know, I can figure out.",
 	phone: "614-619-4867",
 	address: "Columbus, OH",
 	website: " ",
@@ -35,23 +28,32 @@ let resumeData = {
 		},
 		{
 			name: "The Ohio State University",
-			specialization: "Architecure",
+			specialization: "Architecture",
 			MonthOfPassing: "May",
 			YearOfPassing: "2014",
 		},
 	],
 	work: [
 		{
-			CompanyName: "PCI Design Group",
-			specialization: "Architectural Designer",
-			MonthOfLeaving: "Current",
-			YearOfLeaving: " ",
+			companyName: "PCI Design Group",
+			title: "Architectural Designer",
+			monthOfLeaving: "Current",
+			yearOfLeaving: " ",
+			description: ["alksdjf", "laksjdfl", "alksjdkjf"],
 		},
 		{
-			CompanyName: "LUSK Architecture",
-			specialization: "Associate Architect",
-			MonthOfLeaving: "Sep",
-			YearOfLeaving: "2018",
+			companyName: "LUSK Architecture",
+			title: "Associate Architect",
+			monthOfLeaving: "Sep",
+			yearOfLeaving: "2018",
+			description: ["alksdjf", "laksjdfl", "alksjdkjf"],
+		},
+		{
+			companyName: "DSA Architects",
+			title: "Intern Architect",
+			monthOfLeaving: "Sep",
+			yearOfLeaving: "2018",
+			description: ["alksdjf", "laksjdfl", "alksjdkjf"],
 		},
 	],
 	skillsDescription: "Technical",
@@ -120,6 +122,23 @@ let resumeData = {
 			imgurl: "/Natours/natours-1.jpg",
 		},
 	],
+	otherProjects: [
+		{
+			name:  "test",
+			description: "Dolor sunt laboris elit qui laborum laboris nostrud. Incididunt ea exercitation incirt",
+			techList: ["node.js", "react-native", "mongoose"]
+		},
+		{
+			name:  "Drag and Drop",
+			description: "Dolor sunt laboris elit qui laborum laboris nostrud. Incididunt ea exercitation incididunt ",
+			techList: ["node.js", "react-native", "mongoose"]
+		},
+		{
+			name:  "Building a Zoom Replica",
+			description: "Dolor sunt laboris elit qui laborum laboris nostrud. Incididunt ea exercitation incidi",
+			techList: ["node.js", "react-native", "mongoose"]
+		},
+	]
 };
 
 export default resumeData;

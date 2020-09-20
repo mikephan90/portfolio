@@ -1,319 +1,150 @@
-import React from "react";
-
-// import Paper from '@material-ui/core/Paper';
-// import Grid from '@material-ui/core/Grid';
-
-import SectionHeader from "../components/SectionHeader";
+import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
+// Material UI
+import Grid from "@material-ui/core/Grid";
+// Scroll Reveal
+import { srConfig } from "../config";
+import sr from "../utils/ScrollReveal";
+// Components
+import SectionHeader from "../components/SectionHeader";
 
 const Resume = (props) => {
+	let resumeData = props.resumeData;
+
+	const revealContainer = useRef(null);
+	useEffect(() => sr.reveal(revealContainer.current, srConfig()), []);
+
 	return (
-		<ResumeWrapper id="resume">
-			<div>
-				<div>
-					<SectionHeader num="2." title="Where I've Worked" />
-				</div>
-				<WorkInfo>
-					<div>
-						<h2>This could be you!</h2>
-					</div>
-					{props.resumeData.work.map((item, index) => {
-						return (
-							<div key={index}>
-								<div>
-									<h3>{item.CompanyName}</h3>
-									<p className="work-info">
-										{item.specialization} {" | "}
-										<em>
-											{item.MonthOfLeaving} {item.YearOfLeaving}
-										</em>
-										{/* <p>{item.Achievements}</p> */}
-									</p>
-								</div>
+		<ResumeWrapper id="resume" ref={revealContainer}>
+			<SectionHeader num="2." title="Where I've Worked" />
+			<Grid container spacing={3}>
+				<Grid item xs>
+					<WorkInfo>
+						<div className="header">This could be you!</div>
+						<p className="description">
+							I'm working towards getting some experience in the tech industry. As of right now, I am
+							still currently employed in my previous career of architecture. Due to finances, I continued
+							to work while completing my computer science degree, unable to take on internships and
+							co-ops. My focus was to finish and focus on personal projects with the time I did have. I do
+							bring professional work experience with some of my highlights below.
+						</p>
+					</WorkInfo>
+					<JobContainer>
+						<JobList>
+							{resumeData.work.map((item, index) => {
+								return (
+									<li key={index}>
+										<JobButton>{item.companyName}</JobButton>
+									</li>
+								);
+							})}
+						</JobList>
+						<JobInfo>
+							{/* Need to create useState to display specific items from array using index */}
+							<div>job title here</div>
+							<div>dates here</div>
+							<div>
+								<ul>
+									{resumeData.work.map((item, index) => {
+										return (
+											<li key={index}>{item.description[index]}</li>
+										)
+									})}
+									
+								</ul>
 							</div>
-						);
-					})}
-				</WorkInfo>
-			</div>
+						</JobInfo>
+					</JobContainer>
+				</Grid>
+			</Grid>
 		</ResumeWrapper>
 	);
 };
 
 export default Resume;
 
+const JobInfo = styled.div`
+	display: flex;
+	flex-direction: column;
+	text-align: left;
+	color: white;
+	width: 300px;
+`;
+
+const JobList = styled.ul`
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	z-index: 3;
+	width: max-content;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	
+
+	li {
+	
+	}
+`;
+
+const JobContainer = styled.div`
+	display: flex;
+	justify-content: center;
+	margin-top: 50px;
+`;
+
+const JobButton = styled.div`
+	width: 200px;
+	text-align: left;
+	border-left: 2px solid red;
+	padding: 0 20px 2px;
+	white-space: nowrap;
+	color: white;
+	font: 14px/1.9em "Montserrat", serif;
+	background: none;
+	border-radius: 0;
+	padding-right: 15px;
+	margin-right: 15px;
+	cursor: pointer;
+
+	&:hover,
+	&:focus {
+		background-color: rgba(2,2,2,0.5);
+	}
+`;
+
 const WorkInfo = styled.div`
-	border: 1px solid red;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	color: #fff;
+	font: 14px/1.9em "Montserrat", serif;
+
+	.header {
+		font-size: 20px;
+		text-transform: uppercase;
+	}
+
+	.description {
+		position: relative;
+		display: flex;
+		justify-content: center;
+		text-align: justify;
+		text-justify: inter-word;
+		width: 60%;
+		color: #d3d3d3;
+	}
 `;
 
 const ResumeWrapper = styled.div`
 	display: flex;
-	justify-content: center;
-	vertical-align: center;
-	height: 50vh;
-	${"" /* background: #fff;
-	padding-top: 60px;
-	overflow: hidden;
-	display: flex;
 	flex-direction: column;
-
-	hr {
-		width: 50%;
-
-        border: 1px solid rgba(150, 150, 150, 0.1);
-	}
-
-	a {
-		&:visited {
-			color: red;
-		}
-		&:hover {
-			color: #313131;
-		}
-	}
-
-	.education,
-	.work {
-		margin-bottom: 48px;
-		padding-bottom: 24px;
-		display: flex;
-	}
-
-	.skills {
-		margin-bottom: 48px;
-		padding-bottom: 24px;
-		display: flex;
-	}
-
-	h1 {
-		font: 18px/24px "Montserrat", sans-serif;
-		font-weight: bold;
-		text-transform: uppercase;
-		letter-spacing: 1px;
-		padding-left: 75%;
-		span {
-			border-bottom: 3px solid red;
-			padding-bottom: 6px;
-		}
-	}
-
-	h2 {
-		font: 18px "Montserrat", sans-serif;
-		text-transform: uppercase;
-		padding-bottom: 36px;
-	}
-
-	h3 {
-		font: 25px/30px "Montserrat", sans-serif;
-		font-weight: italic;
-	}
-
-	h5 {
-		color: #d3d3d3;
-		font: 14px/20px "Montserrat", sans-serif;
-		border-bottom: 1px solid #e8e8e8;
-		margin-bottom: 16px;
-	}
-
-	h6 {
-		font: 18px "Montserrat", sans-serif;
-	}
-
-	.header-col {
-		width: 33.333%;
-		padding-top: 14px;
-	}
-
-	.main-col {
-		width: 33.333%;
-        display: flex;
-        flex-direction: column;
-        margin-left: 8.5%;
-
-	}
-
-	.work-info {
-		font: 16px/24px "librebaskerville-italic", serif;
-		margin-top: -24px;
-		color: #6e7881;
-	}
-
-	.info {
-		font: 16px/24px "librebaskerville-italic", serif;
-		color: #6e7881;
-		margin-bottom: 18px;
-		margin-top: -12px;
-	}
-
-	.bars {
-		margin-top: 14px;
-		margin-left: -40px;
-		width: 95%;
-		float: left;
-		padding: 0;
-		text-align: left;
-		.skill-list {
-			margin-top: 36px;
-			list-style: none;
-		}
-		li {
-			position: relative;
-			margin-bottom: 40px;
-			background: #ccc;
-			height: 20px;
-			border-radius: 3px;
-			em {
-				font: 15px "Montserrat", sans-serif;
-				color: #313131;
-				text-transform: uppercase;
-				letter-spacing: 2px;
-				font-weight: normal;
-				position: relative;
-				top: -24px;
-			}
-		}
-
-		.bar-expand {
-			position: absolute;
-			left: 0;
-			top: 0;
-
-			margin: 0;
-			padding-right: 24px;
-			background: #313131;
-			display: inline-block;
-			height: 20px;
-			line-height: 42px;
-			border-radius: 3px 0 0 3px;
-		}
-
-		.cplusplus {
-			width: 60%;
-			-webkit-animation: cplusplus 2.2s ease;
-			@keyframes cplusplus {
-				0% {
-					width: 0px;
-				}
-				100% {
-					width: 60%;
-				}
-			}
-		}
-
-		.java {
-			width: 50%;
-			-webkit-animation: java 2.4s ease;
-			@keyframes java {
-				0% {
-					width: 0px;
-				}
-				100% {
-					width: 50%;
-				}
-			}
-		}
-
-		.react {
-			width: 70%;
-			-webkit-animation: react 2.6s ease;
-			@keyframes react {
-				0% {
-					width: 0px;
-				}
-				100% {
-					width: 70%;
-				}
-			}
-		}
-
-		.react-native {
-			width: 70%;
-			-webkit-animation: react-native 2.8s ease;
-			@keyframes react-native {
-				0% {
-					width: 0px;
-				}
-				100% {
-					width: 70%;
-				}
-			}
-		}
-
-		.javascript {
-			width: 80%;
-			-webkit-animation: javascript 3s ease;
-			@keyframes javascript {
-				0% {
-					width: 0px;
-				}
-				100% {
-					width: 80%;
-				}
-			}
-		}
-
-		.css {
-			width: 70%;
-			-webkit-animation: css 3.2s ease;
-			@keyframes css {
-				0% {
-					width: 0px;
-				}
-				100% {
-					width: 70%;
-				}
-			}
-		}
-
-		.node {
-			width: 55%;
-			-webkit-animation: node 3.4s ease;
-			@keyframes node {
-				0% {
-					width: 0px;
-				}
-				100% {
-					width: 55%;
-				}
-			}
-		}
-
-		.mongoose {
-			width: 55%;
-			-webkit-animation: mongoose 3.6s ease;
-			@keyframes mongoose {
-				0% {
-					width: 0px;
-				}
-				100% {
-					width: 55%;
-				}
-			}
-		}
-
-		.restfulapis {
-			width: 60%;
-			-webkit-animation: restfulapis 3.8s ease;
-			@keyframes restfulapis {
-				0% {
-					width: 0px;
-				}
-				100% {
-					width: 60%;
-				}
-			}
-		}
-
-		.mongodb {
-			width: 40%;
-			-webkit-animation: mongodb 4s ease;
-			@keyframes mongodb {
-				0% {
-					width: 0px;
-				}
-				100% {
-					width: 40%;
-				}
-			}
-		}
-	} */}
+	height: 100vh;
+	text-align: center;
+	justify-content: center;
+	margin-right: 20%;
+	margin-left: 20%;
 `;

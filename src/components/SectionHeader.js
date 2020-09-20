@@ -1,25 +1,31 @@
-import React from 'react';
-
+import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 
-const SectionHeader = (props) => {
-    return (
-        <SpanStyle>
-            <SpanNumber>
-                {props.num}
-                <SpanContent>
-                    {props.title}
-                </SpanContent>
-            </SpanNumber>
-        </SpanStyle>
-    )
+// Scroll Reveal
+import sr from "../utils/ScrollReveal";
+import { srConfigHeader } from "../config";
 
-}
+const SectionHeader = (props) => {
+	const revealTitle = useRef(null);
+
+	useEffect(() => {
+		sr.reveal(revealTitle.current, srConfigHeader());
+	}, []);
+
+	return (
+		<SpanStyle ref={revealTitle}>
+			<SpanNumber>
+				{props.num}
+				<SpanContent>{props.title}</SpanContent>
+			</SpanNumber>
+		</SpanStyle>
+	);
+};
 
 export default SectionHeader;
 
 const SpanStyle = styled.div`
-    padding-bottom: 80px;
+	padding-bottom: 80px;
 `;
 
 const SpanNumber = styled.span`
@@ -28,8 +34,8 @@ const SpanNumber = styled.span`
 `;
 
 const SpanContent = styled.span`
-    margin-left: 10px;
-    text-transform: uppercase;
+	margin-left: 10px;
+	text-transform: uppercase;
 	color: white;
 	font: 24px/1.9em "Montserrat", serif;
 `;

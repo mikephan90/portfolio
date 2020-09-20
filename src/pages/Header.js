@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
-
-import { CSSTransition, TransitionGroup } from "react-transition-group";
-
 import styled from "styled-components";
+// Material UI
 import { Button } from "@material-ui/core";
+// Transition Group
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 import "../styles/transition.css";
-
-// import img from "../assets/header-background.jpg";
 
 const Header = (props) => {
 	let resumeData = props.resumeData;
@@ -23,7 +21,7 @@ const Header = (props) => {
 	const subtitle = () => <DescriptionH2 style={{ transitionDelay: "700ms" }}>I like to build things.</DescriptionH2>;
 	const bio = () => (
 		<Bio style={{ transitionDelay: "400ms" }}>
-			I'm an aspiring software engineer located in {resumeData.address} specializing in building websites and
+			I'm an aspiring {resumeData.role} located in {resumeData.address} specializing in building websites and
 			applications using the latest technology.
 		</Bio>
 	);
@@ -43,8 +41,6 @@ const Header = (props) => {
 			Get in Touch!
 		</Button>
 	);
-
-
 
 	const info = [intro, title, subtitle, bio, ContactButton];
 

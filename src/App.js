@@ -7,7 +7,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Footer from "./pages/Footer";
 import Sidebar from "./pages/Sidebar";
-import Navbar from "./components/navbar";
+import Navbar from "./components/NavBar";
 
 import resumeData from "./resumeData";
 import { StylesProvider } from "@material-ui/core/styles";
