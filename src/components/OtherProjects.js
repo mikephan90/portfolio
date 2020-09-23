@@ -19,7 +19,6 @@ const OtherProjects = (props) => {
 	useEffect(() => {
 		sr.reveal(revealContainer.current, srConfig());
 		sr.reveal(revealProjects.current, srConfig());
-		// revealProjects.current.forEach((ref, i) => sr.reveal(ref, srConfig(i * 100)));
 	}, []);
 
 	return (
@@ -31,25 +30,23 @@ const OtherProjects = (props) => {
 						return (
 							<Grid item xs sm key={index}>
 								<ProjectPaper>
-									<ProjectInfo>
-										<div className="button-links">
-											<ButtonBase>asdf</ButtonBase>
-											<ButtonBase>asdf</ButtonBase>
-										</div>
-										<Typography gutterBottom className="project-header">
-											{item.name}
-										</Typography>
-										<Typography gutterBottom className="project-description">
-											{item.description}
-										</Typography>
-										<div>
-											<ul className="project-tech">
-												{item.techList.map((item, index) => {
-													return <li key={index}>{item}</li>;
-												})}
-											</ul>
-										</div>
-									</ProjectInfo>
+									<div className="button-links">
+										<ButtonBase>asdf</ButtonBase>
+										<ButtonBase>asdf</ButtonBase>
+									</div>
+									<Typography gutterBottom className="project-header">
+										{item.name}
+									</Typography>
+									<Typography gutterBottom className="project-description">
+										{item.description}
+									</Typography>
+									<div className="project-tech">
+										<ul>
+											{item.techList.map((item, index) => {
+												return <li key={index}>{item}</li>;
+											})}
+										</ul>
+									</div>
 								</ProjectPaper>
 							</Grid>
 						);
@@ -63,29 +60,23 @@ const OtherProjects = (props) => {
 export default OtherProjects;
 
 const ProjectPaper = styled(Paper)`
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
 	transition: all 0.4s ease-in-out;
 	background-color: #1b1b1b;
 	shadow: 1px 1px 1px;
 	color: #fff;
 	height: 100%;
+	padding: 2rem 1.75rem;
+	position: relative;
 
 	&:hover {
 		background-color: #2b2b2b;
 		transform: translateY(-20px);
 	}
-`;
-
-const ProjectInfo = styled.div`
-	height: 100%;
-	display: flex;
-	flex-direction: column;
-	padding: 2rem 1.75rem;
-	position: relative;
-	align-items: flex-start;
 
 	.button-links {
-		display: flex;
-		flex-direction: flex-start;
 		color: #3f3f3f;
 		padding-bottom: 20px;
 	}
@@ -109,16 +100,19 @@ const ProjectInfo = styled.div`
 		align-items: flex-end;
 		flex-grow: 1;
 		flex-wrap: wrap;
-		padding: 0;
-		margin: 20px 0 0 0;
-		list-style: none;
 		font: 10px "Montserrat", serif;
 		color: #757575;
 
-		li {
-			line-height: 1.5;
-			padding-right: 10px;
-			padding-left: 0;
+		ul {
+			margin: 0;
+			padding: 0;
+			display: flex;
+			list-style: none;
+			li {
+				color: white;
+				line-height: 1.5;
+				padding-right: 10px;
+			}
 		}
 	}
 `;

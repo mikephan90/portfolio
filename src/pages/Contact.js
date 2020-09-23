@@ -31,9 +31,6 @@ const Contact = () => {
 					}}
 					variant="outlined"
 					color="secondary"
-					onClick={() => {
-						alert("clicked");
-					}}
 				>
 					Say Hello
 				</Button>

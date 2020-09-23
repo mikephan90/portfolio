@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 // Material UI
 import Grid from "@material-ui/core/Grid";
@@ -11,8 +11,36 @@ import SectionHeader from "../components/SectionHeader";
 const Resume = (props) => {
 	let resumeData = props.resumeData;
 
+	const [activeTabId, setActiveTabId] = useState(0);
+	const [selectedJob, setSelectedJob] = useState(false);
+	const tabs = useRef([]);
 	const revealContainer = useRef(null);
+
 	useEffect(() => sr.reveal(revealContainer.current, srConfig()), []);
+
+	const focusContainer = () => {
+		return (
+			<JobInfo
+				onClick={() => {
+					setSelectedJob(!selectedJob);
+					console.log(selectedJob);
+				}}
+			>
+				<div className="job-container">
+					<div className="job-name">{resumeData.work[activeTabId].companyName}</div>
+					<div className="job-date">
+						{resumeData.work[activeTabId].monthOfLeaving} {resumeData.work[activeTabId].yearOfLeaving}
+					</div>
+					<div className="job-title">{resumeData.work[activeTabId].title}</div>
+				</div>
+				<div className="job-description">
+					{resumeData.work[activeTabId].description.map((item, index) => {
+						return <li key={index}>{item}</li>;
+					})}
+				</div>
+			</JobInfo>
+		);
+	};
 
 	return (
 		<ResumeWrapper id="resume" ref={revealContainer}>
@@ -34,26 +62,18 @@ const Resume = (props) => {
 							{resumeData.work.map((item, index) => {
 								return (
 									<li key={index}>
-										<JobButton>{item.companyName}</JobButton>
+										<JobButton
+											isActive={activeTabId === index}
+											onClick={() => setActiveTabId(index)}
+											ref={(el) => (tabs.current[index] = el)}
+										>
+											{item.companyName}
+										</JobButton>
 									</li>
 								);
 							})}
 						</JobList>
-						<JobInfo>
-							{/* Need to create useState to display specific items from array using index */}
-							<div>job title here</div>
-							<div>dates here</div>
-							<div>
-								<ul>
-									{resumeData.work.map((item, index) => {
-										return (
-											<li key={index}>{item.description[index]}</li>
-										)
-									})}
-									
-								</ul>
-							</div>
-						</JobInfo>
+						{focusContainer()}
 					</JobContainer>
 				</Grid>
 			</Grid>
@@ -67,8 +87,52 @@ const JobInfo = styled.div`
 	display: flex;
 	flex-direction: column;
 	text-align: left;
+	font: 12px/1.9em "Montserrat", serif;
 	color: white;
-	width: 300px;
+	border-left: 1px solid rgba(255, 255, 255, 0.1);
+	padding-left: 20px;
+	min-width: 300px;
+	max-width: 350px;
+
+	.job-container {
+		padding: 3px;
+	}
+
+	.job-name {
+		display: inline;
+		font-size: 14px;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+		transition: all 0.5s ease-in-out;
+	}
+
+	.job-date {
+		font-size: 12px;
+		color: #aaaaaa;
+	}
+
+	.job-title {
+		color: #fefefe;
+	}
+
+	.job-description {
+		list-style: none;
+		margin-top: 20px;
+		padding-bottom: 10px;
+		li {
+			text-align: justify;
+			text-justify: inter-word;
+			
+			position: relative;
+			padding-left: 30px;
+			margin-bottom: 10px;
+			&:before {
+				content: "▹";
+				position: absolute;
+				left: 0;
+				color: #f3f3f3;
+			}
+		}
+	}
 `;
 
 const JobList = styled.ul`
@@ -81,10 +145,8 @@ const JobList = styled.ul`
 	padding: 0;
 	margin: 0;
 	list-style: none;
-	
 
 	li {
-	
 	}
 `;
 
@@ -97,20 +159,20 @@ const JobContainer = styled.div`
 const JobButton = styled.div`
 	width: 200px;
 	text-align: left;
-	border-left: 2px solid red;
-	padding: 0 20px 2px;
-	white-space: nowrap;
-	color: white;
 	font: 14px/1.9em "Montserrat", serif;
-	background: none;
+	border-left: 2px solid ${({ isActive }) => (isActive ? "red" : "#3f3f3f")};
+	color: ${({ isActive }) => (isActive ? "red" : "#2f2f2f")};
+	white-space: nowrap;
+	background-color: none;
 	border-radius: 0;
-	padding-right: 15px;
+	padding: 0 20px 2px;
 	margin-right: 15px;
+	transition: all 0.9s ease-in-out;
 	cursor: pointer;
 
 	&:hover,
 	&:focus {
-		background-color: rgba(2,2,2,0.5);
+		background-color: rgba(2, 2, 2, 0.5);
 	}
 `;
 
@@ -134,7 +196,8 @@ const WorkInfo = styled.div`
 		justify-content: center;
 		text-align: justify;
 		text-justify: inter-word;
-		width: 60%;
+		min-width: 550px;
+		max-width: 600px;
 		color: #d3d3d3;
 	}
 `;

@@ -50,7 +50,8 @@ export default Portfolio;
 const PortfolioWrapper = styled.div`
 	display: flex;
 	flex-direction: column;
-
+	margin-top: 20%;
+	margin-bottom: 20%;
 	margin-right: 20%;
 	margin-left: 20%;
 `;

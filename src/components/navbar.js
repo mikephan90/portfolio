@@ -16,7 +16,13 @@ export default function Navbar() {
 		return () => clearTimeout(timeout);
 	}, []);
 
-	const home = () => <NavItems style={{ transitionDelay: "1000ms" }}>Mike Phan</NavItems>;
+	const home = () => (
+		<NavItems style={{ transitionDelay: "1000ms" }}>
+			<Link to="home" smooth={"easeOutQuart"} offset={-400} duration={800} delay={150}>
+				Mike Phan
+			</Link>
+		</NavItems>
+	);
 	const about = () => (
 		<NavItems style={{ transitionDelay: "200ms" }}>
 			<NavSpan>1. </NavSpan>
@@ -49,7 +55,6 @@ export default function Navbar() {
 			</Link>
 		</NavItems>
 	);
-
 	const ResumeButton = () => (
 		<Button
 			style={{

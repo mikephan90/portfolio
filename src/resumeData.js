@@ -11,7 +11,6 @@ let resumeData = {
 		},
 		{
 			name: "github",
-
 			url: "http://github.com/mikephan90",
 			className: "fa fa-github",
 		},
@@ -23,14 +22,14 @@ let resumeData = {
 		{
 			name: "Oregon State University",
 			specialization: "Computer Science",
-			MonthOfPassing: "March",
-			YearOfPassing: "2020",
+			monthOfPassing: "March",
+			yearOfLeaving: "2020",
 		},
 		{
 			name: "The Ohio State University",
 			specialization: "Architecture",
-			MonthOfPassing: "May",
-			YearOfPassing: "2014",
+			monthOfPassing: "May",
+			yearOfLeaving: "2014",
 		},
 	],
 	work: [
@@ -39,24 +38,37 @@ let resumeData = {
 			title: "Architectural Designer",
 			monthOfLeaving: "Current",
 			yearOfLeaving: " ",
-			description: ["alksdjf", "laksjdfl", "alksjdkjf"],
+			description: [
+				"Executed designs for multi-million dollar residential apartment buildings to meet standards.",
+				"Coordinated projects through a variety of phases in design to meet building code requirements and optimized construction practices, decreasing costs of labor and materials",
+				"Streamlined design standards for architectural drawings to increase productivity by creating templates and organizing practices, removing hours of project initialization.",
+				"Facilitated workflow and distribution of work following strict schedules and deadlines to team members, engineers and development teams, reducing turn-around times of drawings and information",
+				"Oversaw building construction to verify accuracy of designs and resolved issues for on-site coordination between multiple construction trades."
+			],
 		},
 		{
 			companyName: "LUSK Architecture",
 			title: "Associate Architect",
-			monthOfLeaving: "Sep",
+			monthOfLeaving: "November",
 			yearOfLeaving: "2018",
-			description: ["alksdjf", "laksjdfl", "alksjdkjf"],
+			description: [
+				"Maintained relationships with a variety of clients, from local retailers to national brands such as Starbucks and Toyota, by meeting demands and requirements with efficiency.",
+				"Redesigned drafting standards to decrease coordination issues between consultants and team members.",
+				"Designed and developed realistic and conceptual renderings to increase clientele interest",
+				"Coordinated with team members between multiple trades to ensure requirements and deadlines are met."
+			],
 		},
 		{
 			companyName: "DSA Architects",
 			title: "Intern Architect",
 			monthOfLeaving: "Sep",
-			yearOfLeaving: "2018",
-			description: ["alksdjf", "laksjdfl", "alksjdkjf"],
+			yearOfLeaving: "2015",
+			description: [
+				"Dolor sunt laboris elit qui laborum laboris nostrud. Incididunt ea exercitation incididunt pariatur dolor ",
+				"Dolor sunt laboris elit qui laborum laboris nostrud. Incididunt ea exercitation incididunt pariatur dolor ",
+			],
 		},
 	],
-	skillsDescription: "Technical",
 	skills: [
 		{
 			type: "Programming",
@@ -106,6 +118,7 @@ let resumeData = {
 				"Dolor sunt laboris elit qui laborum laboris nostrud. Incididunt ea exercitation incididunt pariatur dolor exercitation deserunt dolor Lorem veniam cillum excepteur Lorem. Deserunt sunt fugiat nostrud incididunt cupidatat pariatur.",
 			techList: ["node.js", "react-native", "mongoose", "mongoDB"],
 			imgurl: "/Natours/natours-1.jpg",
+			siteUrl: ""
 		},
 		{
 			name: "Natours",
@@ -113,6 +126,7 @@ let resumeData = {
 				"Dolor sunt laboris elit qui laborum laboris nostrud. Incididunt ea exercitation incididunt pariatur dolor exercitation deserunt dolor Lorem veniam cillum excepteur Lorem. Deserunt sunt fugiat nostrud incididunt cupidatat pariatur.",
 			techList: ["node.js", "mongoose", "postman", "RESTful API", "mongoDB"],
 			imgurl: "/Natours/natours-1.jpg",
+			siteUrl: ""
 		},
 		{
 			name: "Pryce",
@@ -120,25 +134,29 @@ let resumeData = {
 				"Dolor sunt laboris elit qui laborum laboris nostrud. Incididunt ea exercitation incididunt pariatur dolor exercitation deserunt dolor Lorem veniam cillum excepteur Lorem. Deserunt sunt fugiat nostrud incididunt cupidatat pariatur.",
 			techList: ["node.js", "react-native", "mongoose", "mongoDB"],
 			imgurl: "/Natours/natours-1.jpg",
+			siteUrl: ""
 		},
 	],
 	otherProjects: [
 		{
-			name:  "test",
+			name: "Twitter Clone",
 			description: "Dolor sunt laboris elit qui laborum laboris nostrud. Incididunt ea exercitation incirt",
-			techList: ["node.js", "react-native", "mongoose"]
+			techList: ["node.js", "react-native", "mongoose"],
+			siteUrl: ""
 		},
 		{
-			name:  "Drag and Drop",
+			name: "Drag and Drop",
 			description: "Dolor sunt laboris elit qui laborum laboris nostrud. Incididunt ea exercitation incididunt ",
-			techList: ["node.js", "react-native", "mongoose"]
+			techList: ["node.js", "react-native", "mongoose"],
+			siteUrl: ""
 		},
 		{
-			name:  "Building a Zoom Replica",
+			name: "Building a Zoom Replica",
 			description: "Dolor sunt laboris elit qui laborum laboris nostrud. Incididunt ea exercitation incidi",
-			techList: ["node.js", "react-native", "mongoose"]
+			techList: ["node.js", "react-native", "mongoose"],
+			siteUrl: ""
 		},
-	]
+	],
 };
 
 export default resumeData;

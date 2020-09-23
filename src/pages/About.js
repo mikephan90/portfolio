@@ -70,7 +70,7 @@ const About = (props) => {
 										</LinkStyle>
 										<div>B.S. {item.specialization}</div>
 										<div>
-											{item.MonthOfPassing} {item.YearOfPassing}
+											{item.monthOfPassing} {item.yearOfLeaving}
 										</div>
 									</div>
 								</EdItem>
@@ -155,7 +155,7 @@ const AboutInfo = styled.div`
 const AboutWrapper = styled.div`
 	display: flex;
 	flex-direction: column;
-
+	height: 100vh;
 	margin-right: 20%;
 	margin-left: 20%;
 
