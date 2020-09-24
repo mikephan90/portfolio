@@ -6,7 +6,7 @@ import Grid from "@material-ui/core/Grid";
 import { srConfig } from "../config";
 import sr from "../utils/ScrollReveal";
 // Components
-import SectionHeader from "../components/SectionHeader";
+import SectionHeaderCenter from "../components/SectionHeaderCenter";
 
 const Resume = (props) => {
 	let resumeData = props.resumeData;
@@ -15,8 +15,12 @@ const Resume = (props) => {
 	const [selectedJob, setSelectedJob] = useState(false);
 	const tabs = useRef([]);
 	const revealContainer = useRef(null);
+	const revealJobs = useRef(null);
 
-	useEffect(() => sr.reveal(revealContainer.current, srConfig()), []);
+	useEffect(() => {
+		sr.reveal(revealContainer.current, srConfig());
+		sr.reveal(revealJobs.current, srConfig());
+	}, []);
 
 	const focusContainer = () => {
 		return (
@@ -43,38 +47,45 @@ const Resume = (props) => {
 	};
 
 	return (
-		<ResumeWrapper id="resume" ref={revealContainer}>
-			<SectionHeader num="2." title="Where I've Worked" />
+		<ResumeWrapper id="resume">
+			<SectionHeaderCenter num="2." title="Where I've Worked" />
 			<Grid container spacing={3}>
 				<Grid item xs>
 					<WorkInfo>
-						<div className="header">This could be you!</div>
-						<p className="description">
-							I'm working towards getting some experience in the tech industry. As of right now, I am
-							still currently employed in my previous career of architecture. Due to finances, I continued
-							to work while completing my computer science degree, unable to take on internships and
-							co-ops. My focus was to finish and focus on personal projects with the time I did have. I do
-							bring professional work experience with some of my highlights below.
-						</p>
+						<div ref={revealContainer}>
+							<div className="header">This could be you!</div>
+							<Divider />
+							<p className="description">
+								I'm working towards getting some experience in the tech industry. As of right now, I am
+								still currently employed in my previous career of architecture. Due to finances, I
+								continued to work while completing my computer science degree, unable to take on
+								internships and co-ops. My focus was to finish and focus on personal projects with the
+								time I did have. I do bring professional work experience with some of my highlights
+								below.
+							</p>
+							<Divider />
+						</div>
 					</WorkInfo>
-					<JobContainer>
-						<JobList>
-							{resumeData.work.map((item, index) => {
-								return (
-									<li key={index}>
-										<JobButton
-											isActive={activeTabId === index}
-											onClick={() => setActiveTabId(index)}
-											ref={(el) => (tabs.current[index] = el)}
-										>
-											{item.companyName}
-										</JobButton>
-									</li>
-								);
-							})}
-						</JobList>
-						{focusContainer()}
-					</JobContainer>
+					<div ref={revealJobs}>
+						<JobContainer>
+							<JobList>
+								{resumeData.work.map((item, index) => {
+									return (
+										<li key={index}>
+											<JobButton
+												isActive={activeTabId === index}
+												onClick={() => setActiveTabId(index)}
+												ref={(el) => (tabs.current[index] = el)}
+											>
+												{item.companyName}
+											</JobButton>
+										</li>
+									);
+								})}
+							</JobList>
+							{focusContainer()}
+						</JobContainer>
+					</div>
 				</Grid>
 			</Grid>
 		</ResumeWrapper>
@@ -82,6 +93,14 @@ const Resume = (props) => {
 };
 
 export default Resume;
+
+const Divider = styled.div`
+	content: "";
+	width: 600px;
+	height: 1px;
+	background-color: #1f1f1f;
+	margin: 10px;
+`;
 
 const JobInfo = styled.div`
 	display: flex;
@@ -111,25 +130,26 @@ const JobInfo = styled.div`
 	}
 
 	.job-title {
-		color: #fefefe;
+		color: #aaaaaa;
 	}
 
 	.job-description {
 		list-style: none;
 		margin-top: 20px;
 		padding-bottom: 10px;
+
 		li {
 			text-align: justify;
 			text-justify: inter-word;
-			
 			position: relative;
 			padding-left: 30px;
 			margin-bottom: 10px;
 			&:before {
 				content: "▹";
+				font-size: 16px;
 				position: absolute;
 				left: 0;
-				color: #f3f3f3;
+				color: red;
 			}
 		}
 	}
@@ -145,9 +165,6 @@ const JobList = styled.ul`
 	padding: 0;
 	margin: 0;
 	list-style: none;
-
-	li {
-	}
 `;
 
 const JobContainer = styled.div`
@@ -157,7 +174,7 @@ const JobContainer = styled.div`
 `;
 
 const JobButton = styled.div`
-	width: 200px;
+	width: 170px;
 	text-align: left;
 	font: 14px/1.9em "Montserrat", serif;
 	border-left: 2px solid ${({ isActive }) => (isActive ? "red" : "#3f3f3f")};
@@ -188,6 +205,7 @@ const WorkInfo = styled.div`
 	.header {
 		font-size: 20px;
 		text-transform: uppercase;
+		margin-bottom: 30px;
 	}
 
 	.description {

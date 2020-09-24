@@ -5,7 +5,7 @@ import styled from "styled-components";
 import sr from "../utils/ScrollReveal";
 import { srConfigHeader } from "../config";
 
-const SectionHeader = (props) => {
+const SectionHeaderCenter = (props) => {
 	const revealTitle = useRef(null);
 
 	useEffect(() => {
@@ -22,11 +22,11 @@ const SectionHeader = (props) => {
 	);
 };
 
-export default SectionHeader;
+export default SectionHeaderCenter;
 
 const SectionHeaderStyle = styled.div`
-display: flex;
-    align-items: center;
+	display: flex;
+    justify-content: center;
     position: relative;
     margin: 10px 0 40px;
     width: 100%;
@@ -48,13 +48,4 @@ display: flex;
 
 	}
 
-	&:after {
-      content: '';
-      display: block;
-      position: relative;
-      top: -5px;
-      width: 300px;
-      height: 1px;
-      margin-left: 20px;
-      background-color: #1f1f1f;
 `;

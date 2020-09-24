@@ -6,7 +6,7 @@ import { Button } from "@material-ui/core";
 import { srConfig } from "../config";
 import sr from "../utils/ScrollReveal";
 // Components
-import SectionHeader from "../components/SectionHeader";
+import SectionHeaderCenter from "../components/SectionHeaderCenter";
 
 const Contact = () => {
 	const revealContainer = useRef(null);
@@ -14,9 +14,10 @@ const Contact = () => {
 
 	return (
 		<ContactWrapper id="contact">
-			<SectionHeader num="4." title="What's Next?" />
+			<SectionHeaderCenter num="4." title="What's Next?" />
 			<div ref={revealContainer}>
 				<ContactH1>Get in Touch!</ContactH1>
+				<Divider />
 				<Description>
 					<p className="description">
 						I'm open to all opportunities and meeting new people. My inbox is always open for any questions
@@ -31,6 +32,7 @@ const Contact = () => {
 					}}
 					variant="outlined"
 					color="secondary"
+					href="mailto:khoaphan90@gmail.com"
 				>
 					Say Hello
 				</Button>
@@ -41,9 +43,18 @@ const Contact = () => {
 
 export default Contact;
 
+const Divider = styled.div`
+	content: "";
+	height: 1px;
+	background-color: #1f1f1f;
+	margin-left: 30%;
+	margin-right: 30%;
+`;
+
 const Description = styled.div`
 	display: flex;
 	justify-content: center;
+	margin-top: 30px;
 `;
 
 const ContactH1 = styled.h1`

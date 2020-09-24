@@ -12,14 +12,23 @@ const About = (props) => {
 	let resumeData = props.resumeData;
 
 	const revealContainer = useRef(null);
-	useEffect(() => sr.reveal(revealContainer.current, srConfig()), []);
+	const revealInfo = useRef(null);
+	const revealTech = useRef(null);
+	const revealEducation = useRef(null);
+
+	useEffect(() => {
+		sr.reveal(revealContainer.current, srConfig());
+		sr.reveal(revealInfo.current, srConfig());
+		sr.reveal(revealTech.current, srConfig());
+		sr.reveal(revealEducation.current, srConfig());
+	}, []);
 
 	return (
 		<AboutWrapper id="about" ref={revealContainer}>
 			<SectionHeader num="1." title="about me" />
 			<Grid container spacing={3}>
 				<Grid item xs>
-					<AboutInfo>
+					<div ref={revealInfo}>
 						<p>
 							Hello there! I'm {resumeData.name}, an aspiring {resumeData.role} located in{" "}
 							{resumeData.address}.
@@ -30,10 +39,9 @@ const About = (props) => {
 							developing and create exceptional work.
 						</p>
 						<p>
-							The journey to become a software engineer has been a long one for me. I started my career
-							out in architecture after graduating from The Ohio State University (Go Bucks!) and worked
-							in the industry for a few years. I realized how much I loved to create and build but felt
-							limited in what I could actually do with the profession I was in. Web applications and
+							I started my career out in architecture after graduating from The Ohio State University (Go
+							Bucks!) and worked in the industry for a few years. I realized how much I loved to create
+							and build but felt limited in what I could actually do with it. Web applications and
 							software is where I found those restrictions lifted.
 						</p>
 						<p>
@@ -41,42 +49,40 @@ const About = (props) => {
 							degree. With this, I'm eager to continue in my new career, creating and building again but
 							this time in technology.
 						</p>
-						<div>
-							Technologies I've used and familiar with:
-							<TechList>
-								<TechItem>
-									<li>JavaScript</li>
-									<li>React</li>
-									<li>Node.js</li>
-									<li>HTML & CSS</li>
-								</TechItem>
-								<TechItem>
-									<li>React-Native</li>
-									<li>RESTful API</li>
-									<li>C++</li>
-									<li>Java</li>
-								</TechItem>
-							</TechList>
+						<div ref={revealTech}>
+							<TechInfo>
+								Technologies I've used and familiar with:
+								<TechList>
+									{resumeData.skills.map((item, index) => {
+										return <TechItem key={index}>{item.skillname}</TechItem>;
+									})}
+								</TechList>
+							</TechInfo>
 						</div>
-					</AboutInfo>
-					<Education>Education</Education>
-					<EducationInfo>
-						{resumeData.education.map((item, i) => {
-							return (
-								<EdItem key={i}>
-									<div>
-										<LinkStyle href="https://github.com/mikephan90/portfolio">
-											{item.name}
-										</LinkStyle>
-										<div>B.S. {item.specialization}</div>
-										<div>
-											{item.monthOfPassing} {item.yearOfLeaving}
-										</div>
-									</div>
-								</EdItem>
-							);
-						})}
-					</EducationInfo>
+					</div>
+					<div ref={revealEducation}>
+						<Divider />
+						<Education>
+							<p>Education</p>
+							<ul>
+								{resumeData.education.map((item, i) => {
+									return (
+										<li key={i}>
+											<div>
+												<LinkStyle href="https://github.com/mikephan90/portfolio">
+													{item.name}
+												</LinkStyle>
+												<div>B.S. {item.specialization}</div>
+												<div>
+													{item.monthOfPassing} {item.yearOfLeaving}
+												</div>
+											</div>
+										</li>
+									);
+								})}
+							</ul>
+						</Education>
+					</div>
 				</Grid>
 				<Grid item xs className="photo-container">
 					<div>
@@ -90,31 +96,69 @@ const About = (props) => {
 
 export default About;
 
+const TechInfo = styled.div`
+	margin-top: 40px;
+	display: flex;
+	flex-direction: column;
+	font: 12px/1.9em "Montserrat", serif;
+	color: #fff;
+	justify-content: flex-start;
+`;
+
 const TechList = styled.ul`
 	display: flex;
-	flex-direction: row;
+	height: 100px;
+	flex-wrap: wrap;
+	flex-direction: column;
 	font: 12px/1.9em "Montserrat", serif;
 `;
 
-const TechItem = styled.span`
-	text-align: left;
+const TechItem = styled.li`
 	padding-right: 45px;
-`;
-
-const Education = styled.p`
-	color: white;
-`;
-
-const EdItem = styled.li`
 	font: 12px/1.9em "Montserrat", serif;
 	list-style: none;
-	color: #6f6f6f;
+	&:before {
+		font-size: 16px;
+		content: "▹ ";
+		color: red;
+	}
 `;
 
-const EducationInfo = styled.div`
+const Divider = styled.div`
+	position: relative;
+	&:after {
+		content: "";
+		position: absolute;
+		width: 100%;
+		height: 1px;
+		background-color: #1f1f1f;
+	}
+`;
+
+const Education = styled.div`
 	display: flex;
-	color: #fff;
-	justify-content: space-between;
+	flex-direction: column;
+	align-items: center;
+
+	p {
+		color: #fff;
+		font-weight: bold;
+	}
+
+	ul {
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+		color: #9f9f9f;
+		margin: 0;
+		padding: 0;
+
+		li {
+			font: 11px/1.9em "Montserrat", serif;
+			list-style: none;
+			color: #6f6f6f;
+		}
+	}
 `;
 
 const LinkStyle = styled.a`
@@ -148,16 +192,13 @@ const LinkStyle = styled.a`
 	}
 `;
 
-const AboutInfo = styled.div`
-	color: #d3d3d3;
-`;
-
 const AboutWrapper = styled.div`
 	display: flex;
 	flex-direction: column;
-	height: 100vh;
+	height: 120vh;
 	margin-right: 20%;
 	margin-left: 20%;
+	color: #fff;
 
 	p {
 		text-align: justify;

@@ -5,6 +5,9 @@ import styled from "styled-components";
 const Sidebar = (props) => {
 	return (
 		<StyledSidebar>
+			<a className="email-link" href="mailto:khoaphan90@gmail.com">
+				khoaphan90@gmail.com
+			</a>
 			<SocialStyle>
 				{props.resumeData.socialLinks.map((item) => {
 					return (
@@ -43,8 +46,24 @@ const StyledSidebar = styled.div`
 	display: flex;
 	flex-direction: column;
 	position: fixed;
-	left: 0;
+	right: 0;
 	bottom: 0;
 	color: #fff;
 	padding: 40px;
+
+	.email-link {
+		cursor: pointer;
+		font: 14px/1.9em "Montserrat", serif;
+		color: #3f3f3f;
+		writing-mode: vertical-rl;
+		text-orientation: mixed;
+		text-decoration: none;
+		margin-bottom: 30px;
+		transition: all 0.4s ease-in-out;
+		text-decoration: none;
+		&:hover {
+			color: red;
+			transform: translateY(10px);
+		}
+	}
 `;

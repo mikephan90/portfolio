@@ -21,11 +21,10 @@ const Header = (props) => {
 	const subtitle = () => <DescriptionH2 style={{ transitionDelay: "700ms" }}>I like to build things.</DescriptionH2>;
 	const bio = () => (
 		<Bio style={{ transitionDelay: "400ms" }}>
-			I'm an aspiring {resumeData.role} located in {resumeData.address} specializing in building websites and
+			I'm an aspiring {resumeData.role} located in {resumeData.address} specializing in building web
 			applications using the latest technology.
 		</Bio>
 	);
-
 	const ContactButton = () => (
 		<Button
 			style={{
@@ -37,6 +36,7 @@ const Header = (props) => {
 			}}
 			variant="outlined"
 			color="secondary"
+			href="mailto:khoaphan90@gmail.com"
 		>
 			Get in Touch!
 		</Button>
