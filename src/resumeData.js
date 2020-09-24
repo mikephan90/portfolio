@@ -39,9 +39,8 @@ let resumeData = {
 			monthOfLeaving: "Current",
 			yearOfLeaving: " ",
 			description: [
-				"Executed designs for multi-million dollar residential apartment buildings to meet standards.",
+				"Executed designs for multi-million dollar residential apartment buildings",
 				"Coordinated projects through a variety of phases in design to meet building code requirements and optimized construction practices, decreasing costs of labor and materials",
-				"Streamlined design standards for architectural drawings to increase productivity by creating templates and organizing practices, removing hours of project initialization.",
 				"Facilitated workflow and distribution of work following strict schedules and deadlines to team members, engineers and development teams, reducing turn-around times of drawings and information",
 				"Oversaw building construction to verify accuracy of designs and resolved issues for on-site coordination between multiple construction trades."
 			],

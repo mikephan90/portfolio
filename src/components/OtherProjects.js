@@ -30,9 +30,13 @@ const OtherProjects = (props) => {
 						return (
 							<Grid item xs sm key={index}>
 								<ProjectPaper>
-									<div className="button-links">
-										<ButtonBase>asdf</ButtonBase>
-										<ButtonBase>asdf</ButtonBase>
+									<div className="links">
+										<a href="https://yahoo.com">
+											<i className="fa fa-github"></i>
+										</a>
+										<a href="https://yahoo.com">
+											<i className="fa fa-home"></i>
+										</a>
 									</div>
 									<Typography gutterBottom className="project-header">
 										{item.name}
@@ -70,15 +74,31 @@ const ProjectPaper = styled(Paper)`
 	height: 100%;
 	padding: 2rem 1.75rem;
 	position: relative;
+	border: 0px;
 
 	&:hover {
+		border: 1px solid #0f0f0f;
 		background-color: #2b2b2b;
 		transform: translateY(-20px);
 	}
 
-	.button-links {
-		color: #3f3f3f;
-		padding-bottom: 20px;
+	.links {
+		display: flex;
+		justify-content: flex-end;
+		width: 100%;
+		cursor: pointer;
+
+		a {
+			font-size: 24px;
+			color: #4f4f4f;
+			margin-bottom: 20px;
+			transition: all 0.4s ease-in-out;
+			margin-left: 20px;
+			&:hover {
+				color: red;
+				transform: scale(1.2);
+			}
+		}
 	}
 
 	.project-header {
@@ -92,7 +112,8 @@ const ProjectPaper = styled(Paper)`
 	.project-description {
 		font: 12px/1.9em "Montserrat", serif;
 		color: #c0c0c0;
-		text-align: left;
+		text-align: justify;
+		text-justify: inter-word;
 	}
 
 	.project-tech {
@@ -100,8 +121,8 @@ const ProjectPaper = styled(Paper)`
 		align-items: flex-end;
 		flex-grow: 1;
 		flex-wrap: wrap;
-		font: 10px "Montserrat", serif;
-		color: #757575;
+		font: 10px 'David Libre', serif;
+		color: #1f1f1f;
 
 		ul {
 			margin: 0;
@@ -109,7 +130,7 @@ const ProjectPaper = styled(Paper)`
 			display: flex;
 			list-style: none;
 			li {
-				color: white;
+				color: #4f4f4f;
 				line-height: 1.5;
 				padding-right: 10px;
 			}

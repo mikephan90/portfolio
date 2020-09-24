@@ -52,8 +52,7 @@ const StyledSidebar = styled.div`
 	padding: 40px;
 
 	.email-link {
-		cursor: pointer;
-		font: 14px/1.9em "Montserrat", serif;
+		font: 14px/1.9em "David Libre", serif;
 		color: #3f3f3f;
 		writing-mode: vertical-rl;
 		text-orientation: mixed;
@@ -63,7 +62,6 @@ const StyledSidebar = styled.div`
 		text-decoration: none;
 		&:hover {
 			color: red;
-			transform: translateY(10px);
 		}
 	}
 `;

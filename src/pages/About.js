@@ -39,16 +39,18 @@ const About = (props) => {
 							developing and create exceptional work.
 						</p>
 						<p>
-							I started my career out in architecture after graduating from <span className="colored">The Ohio State University</span> (Go
-							Bucks!) and worked in the industry for a few years. I realized how much I loved to create
-							and build but felt limited in what I could actually do with it. Web applications and
-							software is where I found those restrictions lifted.
+							I started my career out in architecture after graduating from{" "}
+							<span className="colored">The Ohio State University</span> (Go Bucks!) and worked in the
+							industry for a few years. I realized how much I loved to create and build but felt limited
+							in what I could actually do with it. Web applications and software is where I found those
+							restrictions lifted.
 						</p>
 						<p>
-							I went back to school online at <span className="colored">Oregon State University</span>, where I graduated with my second
-							degree. With this, I'm eager to continue in my new career, creating and building again but
-							this time in technology.
+							I went back to school online at <span className="colored">Oregon State University</span>,
+							where I graduated with my second degree. With this, I'm eager to continue in my new career,
+							creating and building again but this time in technology.
 						</p>
+						
 						<div ref={revealTech}>
 							<TechInfo>
 								Technologies I've used and familiar with:
@@ -60,8 +62,9 @@ const About = (props) => {
 							</TechInfo>
 						</div>
 					</div>
+
 					<div ref={revealEducation}>
-						<Divider />
+					<Divider />
 						<Education>
 							<p>Education</p>
 							<ul>
@@ -84,10 +87,8 @@ const About = (props) => {
 						</Education>
 					</div>
 				</Grid>
-				<Grid item xs className="photo-container">
-					<div>
-						<img src={require("../assets/ohiostate.jpg")} className="photo" alt="" />
-					</div>
+				<Grid item xs sm className="photo-container">
+					<img src={require("../assets/ohiostate.jpg")} className="photo" alt="" />
 				</Grid>
 			</Grid>
 		</AboutWrapper>
@@ -101,7 +102,7 @@ const TechInfo = styled.div`
 	display: flex;
 	flex-direction: column;
 	font: 12px/1.9em "Montserrat", serif;
-	color: #fff;
+	color: #c0c0c0;
 	justify-content: flex-start;
 `;
 
@@ -141,7 +142,7 @@ const Education = styled.div`
 	align-items: center;
 
 	p {
-		color: #fff;
+		color: #c0c0c0;
 		font-weight: bold;
 	}
 
@@ -149,7 +150,7 @@ const Education = styled.div`
 		display: flex;
 		justify-content: space-between;
 		width: 100%;
-		color: #9f9f9f;
+		color: #c0c0c0;
 		margin: 0;
 		padding: 0;
 
@@ -198,7 +199,7 @@ const AboutWrapper = styled.div`
 	height: 120vh;
 	margin-right: 20%;
 	margin-left: 20%;
-	color: #fff;
+	color: #c0c0c0;
 
 	p {
 		text-align: justify;
@@ -211,21 +212,29 @@ const AboutWrapper = styled.div`
 
 	.photo-container {
 		display: flex;
-		justify-content: flex-end;
+		justify-content: center;
 		align-items: center;
 	}
 
 	.photo {
 		max-width: 300px;
 		max-height: 300px;
-		border: 4px solid #ff8000;
+		border: 1px solid #c0c0c0;
 		border-radius: 3px;
 		background: #1e1e1e;
 		opacity: 0.5;
 		transition: all 0.5s ease-in-out;
 		&:hover {
+			border: 1px solid #fff;
 			opacity: 1;
 			box-shadow: 4px 1px 5px #0e0e0e;
 		}
+	}
+
+	&:after {
+		border: 2px solid red;
+		top: 20px;
+		left: 20px;
+		
 	}
 `;

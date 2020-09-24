@@ -138,8 +138,8 @@ const JobInfo = styled.div`
 		padding-bottom: 10px;
 
 		li {
-			text-align: justify;
-			text-justify: inter-word;
+			font-size: 12px;
+			text-align: left;
 			position: relative;
 			padding-left: 30px;
 			margin-bottom: 10px;
@@ -175,7 +175,7 @@ const JobContainer = styled.div`
 const JobButton = styled.div`
 	width: 170px;
 	text-align: left;
-	font: 14px/1.9em "Montserrat", serif;
+	font: 14px/1.9em 'David Libre', serif;
 	border-left: 2px solid ${({ isActive }) => (isActive ? "red" : "#3f3f3f")};
 	color: ${({ isActive }) => (isActive ? "red" : "#2f2f2f")};
 	white-space: nowrap;
@@ -215,7 +215,6 @@ const WorkInfo = styled.div`
 		text-justify: inter-word;
 		min-width: 550px;
 		max-width: 600px;
-		color: #d3d3d3;
 	}
 `;
 
