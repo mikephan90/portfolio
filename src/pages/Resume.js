@@ -96,7 +96,6 @@ export default Resume;
 
 const Divider = styled.div`
 	content: "";
-	width: 600px;
 	height: 1px;
 	background-color: #1f1f1f;
 	margin: 10px;

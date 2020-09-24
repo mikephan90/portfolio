@@ -24,10 +24,7 @@ const Portfolio = (props) => {
 					<FeaturedProject
 						key={index}
 						id={index}
-						title={item.name}
-						description={item.description}
-						techList={item.techList}
-						img={item.imgurl}
+						data={item}
 					/>
 				);
 			})}

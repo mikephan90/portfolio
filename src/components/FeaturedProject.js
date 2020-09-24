@@ -1,18 +1,22 @@
-import React, { useEffect, useRef } from "react";
-import styled from "styled-components";
+import React, { useEffect, useRef } from 'react';
+import styled from 'styled-components';
 // Material UI
-import Grid from "@material-ui/core/Grid";
-import Paper from "@material-ui/core/Paper";
-import Typography from "@material-ui/core/Typography";
-import ButtonBase from "@material-ui/core/ButtonBase";
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
+import ButtonBase from '@material-ui/core/ButtonBase';
 // Scroll Reveal
-import { srConfig } from "../config";
-import sr from "../utils/ScrollReveal";
+import { srConfig } from '../config';
+import sr from '../utils/ScrollReveal';
 
 const FeaturedProject = (props) => {
 	const revealProjects = useRef([]);
+	console.log(props);
+
 	useEffect(() => {
-		revealProjects.current.forEach((ref, i) => sr.reveal(ref, srConfig(i * 100)));
+		revealProjects.current.forEach((ref, i) =>
+			sr.reveal(ref, srConfig(i * 100))
+		);
 	}, []);
 
 	const checkImg = () => {
@@ -24,12 +28,18 @@ const FeaturedProject = (props) => {
 	};
 
 	return (
-		<FeaturedStyle key={props.id} ref={(el) => (revealProjects.current[props.id] = el)}>
+		<FeaturedStyle
+			key={props.id}
+			ref={(el) => (revealProjects.current[props.id] = el)}
+		>
 			<Grid container>
 				{checkImg() === true ? (
 					<Grid item xs={8} sm={6} container>
 						<ImageOverlay>
-							<ImageStyle alt="complex" src={require("../assets/Natours/natours-1.jpg")} />
+							<ImageStyle
+								alt="complex"
+								src={require('../assets/Natours/natours-1.jpg')}
+							/>
 						</ImageOverlay>
 					</Grid>
 				) : null}
@@ -41,15 +51,20 @@ const FeaturedProject = (props) => {
 								Featured Project
 							</Typography>
 							<Typography gutterBottom className="project-header">
-								{props.title}
+								{props.data.name}
 							</Typography>
-							<Paper className="project-description">{props.description}</Paper>
+							<Paper className="project-description">
+								{props.data.description}
+							</Paper>
 							<ul className="project-tech">
-								{props.techList.map((item, index) => {
+								{props.data.techList.map((item, index) => {
 									return <li key={index}>{item}</li>;
 								})}
 							</ul>
-							<Typography className="project-links">asdfsdf</Typography>
+							<div className="links">
+								<i className="fa fa-github"></i>
+								<i className="fa fa-home"></i>
+							</div>
 						</Grid>
 					</Grid>
 				</Grid>
@@ -57,7 +72,10 @@ const FeaturedProject = (props) => {
 				{checkImg() === false ? (
 					<Grid item xs={8} sm={6} container>
 						<ImageOverlay>
-							<ImageStyle alt="complex" src={require("../assets/Natours/natours-1.jpg")} />
+							<ImageStyle
+								alt="complex"
+								src={require('../assets/Natours/natours-1.jpg')}
+							/>
 						</ImageOverlay>
 					</Grid>
 				) : null}
@@ -113,10 +131,26 @@ const FeaturedStyle = styled.div`
 			list-style: none;
 			display: flex;
 			justify-content: flex-start;
-			font: 10px "Montserrat", serif;
+			font: 10px 'Montserrat', serif;
 			li {
 				padding-right: 10px;
 				padding-left: 0;
+			}
+		}
+
+		.links {
+			display: flex;
+			justify-content: flex-start;
+			cursor: pointer;
+			font-size: 32px;
+			color: #4f4f4f;
+			i {
+				transition: all 0.4s ease-in-out;
+				margin: 10px;
+				&:hover {
+					color: red;
+					transform: scale(1.2);
+				}
 			}
 		}
 	}
@@ -142,10 +176,26 @@ const FeaturedStyle = styled.div`
 		list-style: none;
 		display: flex;
 		justify-content: flex-end;
-		font: 10px/1.9em "Montserrat", serif;
+		font: 10px/1.9em 'Montserrat', serif;
 		li {
 			padding-right: 0px;
 			padding-left: 10px;
+		}
+	}
+
+	.links {
+		display: flex;
+		justify-content: flex-end;
+		cursor: pointer;
+		font-size: 32px;
+		color: #4f4f4f;
+		i {
+			transition: all 0.4s ease-in-out;
+			margin: 10px;
+			&:hover {
+				color: red;
+				transform: scale(1.2);
+			}
 		}
 	}
 `;

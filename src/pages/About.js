@@ -39,13 +39,13 @@ const About = (props) => {
 							developing and create exceptional work.
 						</p>
 						<p>
-							I started my career out in architecture after graduating from The Ohio State University (Go
+							I started my career out in architecture after graduating from <span className="colored">The Ohio State University</span> (Go
 							Bucks!) and worked in the industry for a few years. I realized how much I loved to create
 							and build but felt limited in what I could actually do with it. Web applications and
 							software is where I found those restrictions lifted.
 						</p>
 						<p>
-							I went back to school online at Oregon State University, where I graduated with my second
+							I went back to school online at <span className="colored">Oregon State University</span>, where I graduated with my second
 							degree. With this, I'm eager to continue in my new career, creating and building again but
 							this time in technology.
 						</p>
@@ -203,6 +203,10 @@ const AboutWrapper = styled.div`
 	p {
 		text-align: justify;
 		text-justify: inter-word;
+	}
+
+	.colored {
+		color: red;
 	}
 
 	.photo-container {

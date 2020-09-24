@@ -26,6 +26,7 @@ const Sidebar = (props) => {
 export default Sidebar;
 
 const IconStyle = styled.i`
+	font-size: 24px;
 	color: #fff;
 	transition: all 0.2s ease-in-out;
 	padding-bottom: 20px;
@@ -33,7 +34,6 @@ const IconStyle = styled.i`
 		color: red;
 		transform: translateY(-5px);
 	}
-	font-size: 24px;
 `;
 
 const SocialStyle = styled.ul`

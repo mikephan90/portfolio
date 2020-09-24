@@ -118,7 +118,8 @@ let resumeData = {
 				"Dolor sunt laboris elit qui laborum laboris nostrud. Incididunt ea exercitation incididunt pariatur dolor exercitation deserunt dolor Lorem veniam cillum excepteur Lorem. Deserunt sunt fugiat nostrud incididunt cupidatat pariatur.",
 			techList: ["node.js", "react-native", "mongoose", "mongoDB"],
 			imgurl: "/Natours/natours-1.jpg",
-			siteUrl: ""
+			siteUrl: "",
+			github: "",
 		},
 		{
 			name: "Natours",
@@ -126,7 +127,8 @@ let resumeData = {
 				"Dolor sunt laboris elit qui laborum laboris nostrud. Incididunt ea exercitation incididunt pariatur dolor exercitation deserunt dolor Lorem veniam cillum excepteur Lorem. Deserunt sunt fugiat nostrud incididunt cupidatat pariatur.",
 			techList: ["node.js", "mongoose", "postman", "RESTful API", "mongoDB"],
 			imgurl: "/Natours/natours-1.jpg",
-			siteUrl: ""
+			siteUrl: "",
+			github: "",
 		},
 		{
 			name: "Pryce",
@@ -134,7 +136,8 @@ let resumeData = {
 				"Dolor sunt laboris elit qui laborum laboris nostrud. Incididunt ea exercitation incididunt pariatur dolor exercitation deserunt dolor Lorem veniam cillum excepteur Lorem. Deserunt sunt fugiat nostrud incididunt cupidatat pariatur.",
 			techList: ["node.js", "react-native", "mongoose", "mongoDB"],
 			imgurl: "/Natours/natours-1.jpg",
-			siteUrl: ""
+			siteUrl: "",
+			github: "",
 		},
 	],
 	otherProjects: [
@@ -142,19 +145,22 @@ let resumeData = {
 			name: "Twitter Clone",
 			description: "Dolor sunt laboris elit qui laborum laboris nostrud. Incididunt ea exercitation incirt",
 			techList: ["node.js", "react-native", "mongoose"],
-			siteUrl: ""
+			siteUrl: "",
+			icon: ["fa fa-github", "fa external-link-alt"],
 		},
 		{
 			name: "Drag and Drop",
 			description: "Dolor sunt laboris elit qui laborum laboris nostrud. Incididunt ea exercitation incididunt ",
 			techList: ["node.js", "react-native", "mongoose"],
-			siteUrl: ""
+			siteUrl: "",
+			icon: ["fa fa-github", "fa external-link-alt"],
 		},
 		{
 			name: "Building a Zoom Replica",
 			description: "Dolor sunt laboris elit qui laborum laboris nostrud. Incididunt ea exercitation incidi",
 			techList: ["node.js", "react-native", "mongoose"],
-			siteUrl: ""
+			siteUrl: "",
+			icon: ["fa fa-github", "fa external-link-alt"],
 		},
 	],
 };
