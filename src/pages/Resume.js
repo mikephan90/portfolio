@@ -106,7 +106,7 @@ const JobInfo = styled.div`
 	flex-direction: column;
 	text-align: left;
 	font: 12px/1.9em "Montserrat", serif;
-	color: white;
+	color: #c0c0c0;
 	border-left: 1px solid rgba(255, 255, 255, 0.1);
 	padding-left: 20px;
 	min-width: 300px;
@@ -117,6 +117,7 @@ const JobInfo = styled.div`
 	}
 
 	.job-name {
+		color: #fff;
 		display: inline;
 		font-size: 14px;
 		border-bottom: 1px solid rgba(255, 255, 255, 0.5);
@@ -125,11 +126,10 @@ const JobInfo = styled.div`
 
 	.job-date {
 		font-size: 12px;
-		color: #aaaaaa;
 	}
 
 	.job-title {
-		color: #aaaaaa;
+
 	}
 
 	.job-description {
@@ -148,7 +148,7 @@ const JobInfo = styled.div`
 				font-size: 16px;
 				position: absolute;
 				left: 0;
-				color: red;
+				color: #B22222;
 			}
 		}
 	}
@@ -177,7 +177,7 @@ const JobButton = styled.div`
 	text-align: left;
 	font: 14px/1.9em 'David Libre', serif;
 	border-left: 2px solid ${({ isActive }) => (isActive ? "red" : "#3f3f3f")};
-	color: ${({ isActive }) => (isActive ? "red" : "#2f2f2f")};
+	color: ${({ isActive }) => (isActive ? "#B22222" : "#444444")};
 	white-space: nowrap;
 	background-color: none;
 	border-radius: 0;
@@ -198,7 +198,7 @@ const WorkInfo = styled.div`
 	justify-content: center;
 	align-items: center;
 	text-align: center;
-	color: #fff;
+	color: #c0c0c0;
 	font: 14px/1.9em "Montserrat", serif;
 
 	.header {

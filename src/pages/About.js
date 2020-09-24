@@ -111,17 +111,18 @@ const TechList = styled.ul`
 	height: 100px;
 	flex-wrap: wrap;
 	flex-direction: column;
-	font: 12px/1.9em "Montserrat", serif;
+	font: 10px/1.9em "Montserrat", serif;
 `;
 
 const TechItem = styled.li`
 	padding-right: 45px;
-	font: 12px/1.9em "Montserrat", serif;
+	font: 10px/1.9em "Montserrat", serif;
 	list-style: none;
+	color: #708090;
 	&:before {
 		font-size: 16px;
 		content: "▹ ";
-		color: red;
+		color: #B22222;
 	}
 `;
 
@@ -140,6 +141,7 @@ const Education = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	font: 16px/1.9em "Montserrat", serif;
 
 	p {
 		color: #c0c0c0;
@@ -147,6 +149,7 @@ const Education = styled.div`
 	}
 
 	ul {
+		font: 10px/1.9em "Montserrat", serif;
 		display: flex;
 		justify-content: space-between;
 		width: 100%;
@@ -155,9 +158,9 @@ const Education = styled.div`
 		padding: 0;
 
 		li {
-			font: 11px/1.9em "Montserrat", serif;
+			font-size: 10px;
 			list-style: none;
-			color: #6f6f6f;
+			color: #c0c0c0;
 		}
 	}
 `;
@@ -167,7 +170,7 @@ const LinkStyle = styled.a`
 	font: 14px "Montserrat", serif;
 	text-align: center;
 	text-decoration: none;
-	color: white;
+	color: #fff;
 	transition: all 0.5s ease-in-out;
 	&:before {
 		content: "";
@@ -188,7 +191,7 @@ const LinkStyle = styled.a`
 			visibility: visible;
 			transform: scaleX(1);
 		}
-		color: red;
+		color: #B22222;
 		shadow: 2px 2px 2px;
 	}
 `;
@@ -207,7 +210,7 @@ const AboutWrapper = styled.div`
 	}
 
 	.colored {
-		color: red;
+		color: #B22222;
 	}
 
 	.photo-container {
@@ -221,7 +224,7 @@ const AboutWrapper = styled.div`
 		max-height: 300px;
 		border: 1px solid #c0c0c0;
 		border-radius: 3px;
-		background: #1e1e1e;
+		background: #1f1f1f;
 		opacity: 0.5;
 		transition: all 0.5s ease-in-out;
 		&:hover {

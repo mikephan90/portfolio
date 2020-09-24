@@ -111,13 +111,13 @@ const FeaturedStyle = styled.div`
 			margin-left: 0;
 			padding: 20px;
 			font-size: 14px;
-			color: #f3f3f3;
+			color: #c0c0c0;
 			background-color: #1f1f1f;
 		}
 
 		.project-tech {
 			padding: 0;
-			color: #4e4e4e;
+			color: #708090;
 			list-style: none;
 			display: flex;
 			justify-content: flex-start;
@@ -158,13 +158,13 @@ const FeaturedStyle = styled.div`
 		margin-left: 5%;
 		padding: 20px;
 		font-size: 14px;
-		color: #f3f3f3;
+		color: #c0c0c0;
 		background-color: #1f1f1f;
 	}
 
 	.project-tech {
 		padding: 0;
-		color: #4e4e4e;
+		color: #708090;
 		list-style: none;
 		display: flex;
 		justify-content: flex-end;

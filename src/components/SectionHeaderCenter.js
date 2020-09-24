@@ -38,7 +38,7 @@ const SectionHeaderStyle = styled.div`
 	span {
 		font-size: 18px;
 		margin-right: 20px;
-		color: #7f7f7f;
+		color: #708090;
 		position: relative;
 		bottom: 4px;
 	}

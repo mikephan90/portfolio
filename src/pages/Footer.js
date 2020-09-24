@@ -24,7 +24,7 @@ const FooterWrapper = styled.div`
 		font: 12px/1.9em 'Montserrat', serif;
 		text-align: center;
 		text-decoration: none;
-		color: white;
+		color: #708090;
 
 		cursor: pointer;
 		transition: all 0.5s ease-in-out;

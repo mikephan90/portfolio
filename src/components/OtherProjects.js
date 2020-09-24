@@ -90,7 +90,7 @@ const ProjectPaper = styled(Paper)`
 
 		a {
 			font-size: 24px;
-			color: #4f4f4f;
+			color: #708090;
 			margin-bottom: 20px;
 			transition: all 0.4s ease-in-out;
 			margin-left: 20px;
@@ -122,7 +122,6 @@ const ProjectPaper = styled(Paper)`
 		flex-grow: 1;
 		flex-wrap: wrap;
 		font: 10px 'David Libre', serif;
-		color: #1f1f1f;
 
 		ul {
 			margin: 0;
@@ -130,7 +129,7 @@ const ProjectPaper = styled(Paper)`
 			display: flex;
 			list-style: none;
 			li {
-				color: #4f4f4f;
+				color: #708090;
 				line-height: 1.5;
 				padding-right: 10px;
 			}

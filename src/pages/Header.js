@@ -62,7 +62,7 @@ export default Header;
 
 // STYLING
 const NameH2 = styled.h2`
-	color: #fff;
+	color: #B22222;
 	font: 60px "Montserrat", serif;
 	margin-bottom: -40px;
 `;
@@ -73,7 +73,7 @@ const DescriptionH2 = styled.h2`
 `;
 
 const DescriptionH3 = styled.h3`
-	color: #fff;
+	color: #f1f1f1;
 	font: 18px "Montserrat", serif;
 	margin-bottom: -40px;
 `;
@@ -81,7 +81,7 @@ const DescriptionH3 = styled.h3`
 const Bio = styled.p`
 	text-align: justify;
 	text-justify: inter-word;
-	color: #d3d3d3;
+	color: #c0c0c0;
 	width: 50%;
 `;
 
