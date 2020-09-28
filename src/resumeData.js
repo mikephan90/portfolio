@@ -114,34 +114,34 @@ let resumeData = {
 		{
 			name: "hour",
 			description:
-				"Dolor sunt laboris elit qui laborum laboris nostrud. Incididunt ea exercitation incididunt pariatur dolor exercitation deserunt dolor Lorem veniam cillum excepteur Lorem. Deserunt sunt fugiat nostrud incididunt cupidatat pariatur.",
+				"Study of a mobile application using Yelp's API server to help users locate businesses with special hours for drinks and food. User authorization and tokenization were used in conjunction with its own API server calling data from a mongoDB database server.",
 			techList: ["node.js", "react-native", "mongoose", "mongoDB"],
 			imgurl: "/Natours/natours-1.jpg",
 			siteUrl: "",
-			github: "",
+			github: "https://github.com/mikephan90/hour",
 		},
 		{
 			name: "Natours",
 			description:
-				"Dolor sunt laboris elit qui laborum laboris nostrud. Incididunt ea exercitation incididunt pariatur dolor exercitation deserunt dolor Lorem veniam cillum excepteur Lorem. Deserunt sunt fugiat nostrud incididunt cupidatat pariatur.",
+				"Web application based on a Udemy course to allow users to book outdoor adventure tours around the states. This application is a study that utilized a custom API server with CRUD operations and credit card payments using Stripe for bookings. ",
 			techList: ["node.js", "mongoose", "postman", "RESTful API", "mongoDB"],
 			imgurl: "/Natours/natours-1.jpg",
-			siteUrl: "",
-			github: "",
+			siteUrl: "https://natours-mikephan90.herokuapp.com/",
+			github: "https://github.com/mikephan90/natours",
 		},
 		{
 			name: "Pryce",
 			description:
-				"Dolor sunt laboris elit qui laborum laboris nostrud. Incididunt ea exercitation incididunt pariatur dolor exercitation deserunt dolor Lorem veniam cillum excepteur Lorem. Deserunt sunt fugiat nostrud incididunt cupidatat pariatur.",
-			techList: ["node.js", "react-native", "mongoose", "mongoDB"],
+				"Curriculum capstone project. Mobile application that used crowd-sourced data to let users scan retail merchandise with sale prices within their geographical area into a database system. Users can scan, search or add items into a shopping list to help find the lowest prices.",
+			techList: ["python", "react-native", "mongoose", "PostgreDB"],
 			imgurl: "/Natours/natours-1.jpg",
 			siteUrl: "",
-			github: "",
+			github: "https://github.com/mikephan90/Pryce",
 		},
 	],
 	otherProjects: [
 		{
-			name: "Twitter Clone",
+			name: "URL Shortener",
 			description: "Dolor sunt laboris elit qui laborum laboris nostrud. Incididunt ea exercitation incirt",
 			techList: ["node.js", "react-native", "mongoose"],
 			siteUrl: "",

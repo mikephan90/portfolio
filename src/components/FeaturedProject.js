@@ -52,8 +52,12 @@ const FeaturedProject = (props) => {
 								})}
 							</ul>
 							<div className="links">
-								<i className="fa fa-github"></i>
-								<i className="fa fa-home"></i>
+								<a href={props.data.github} alt="">
+									<i className="fa fa-github" />
+								</a>
+								<a href={props.data.siteUrl} alt="">
+									<i className="fa fa-home" />
+								</a>
 							</div>
 						</Grid>
 					</Grid>
@@ -93,6 +97,15 @@ const FeaturedStyle = styled.div`
 	color: white;
 	margin-bottom: 8vh;
 	text-align: right;
+	border-radius: 12px;
+	border: 1px solid #0f0f0f;
+
+	transition: all 0.5s ease-in-out;
+	padding: 20px;
+	&:hover {
+		border-radius: 10px;
+		border: 1px solid #c0c0c0;
+	}
 
 	&:nth-child(even) {
 		text-align: left;
@@ -133,13 +146,16 @@ const FeaturedStyle = styled.div`
 			justify-content: flex-start;
 			cursor: pointer;
 			font-size: 24px;
-			color: #4f4f4f;
-			i {
-				transition: all 0.4s ease-in-out;
-				margin: 10px;
-				&:hover {
-					color: red;
-					transform: scale(1.2);
+
+			a {
+				color: #4f4f4f;
+				i {
+					transition: all 0.4s ease-in-out;
+					margin: 10px;
+					&:hover {
+						color: red;
+						transform: scale(1.2);
+					}
 				}
 			}
 		}
@@ -180,13 +196,16 @@ const FeaturedStyle = styled.div`
 		justify-content: flex-end;
 		cursor: pointer;
 		font-size: 24px;
-		color: #4f4f4f;
-		i {
-			transition: all 0.4s ease-in-out;
-			margin: 10px;
-			&:hover {
-				color: red;
-				transform: scale(1.2);
+
+		a {
+			color: #4f4f4f;
+			i {
+				transition: all 0.4s ease-in-out;
+				margin: 10px;
+				&:hover {
+					color: red;
+					transform: scale(1.2);
+				}
 			}
 		}
 	}

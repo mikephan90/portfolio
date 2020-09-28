@@ -4,7 +4,6 @@ import styled from "styled-components";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
-import ButtonBase from "@material-ui/core/ButtonBase";
 // Scroll Reveal
 import { srConfig } from "../config";
 import sr from "../utils/ScrollReveal";
@@ -74,10 +73,9 @@ const ProjectPaper = styled(Paper)`
 	height: 100%;
 	padding: 2rem 1.75rem;
 	position: relative;
-	border: 0px;
 
 	&:hover {
-		border: 1px solid #0f0f0f;
+		border: 1px solid #fff;
 		background-color: #2b2b2b;
 		transform: translateY(-20px);
 	}
