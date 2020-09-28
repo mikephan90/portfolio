@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/http//mikephan.github.io/portfolio/static/css/main.4ff03400.chunk.css",
+    "main.js": "/http//mikephan.github.io/portfolio/static/js/main.444ac912.chunk.js",
+    "main.js.map": "/http//mikephan.github.io/portfolio/static/js/main.444ac912.chunk.js.map",
+    "runtime-main.js": "/http//mikephan.github.io/portfolio/static/js/runtime-main.3c683bb4.js",
+    "runtime-main.js.map": "/http//mikephan.github.io/portfolio/static/js/runtime-main.3c683bb4.js.map",
+    "static/js/2.028df22c.chunk.js": "/http//mikephan.github.io/portfolio/static/js/2.028df22c.chunk.js",
+    "static/js/2.028df22c.chunk.js.map": "/http//mikephan.github.io/portfolio/static/js/2.028df22c.chunk.js.map",
+    "index.html": "/http//mikephan.github.io/portfolio/index.html",
+    "precache-manifest.13d91c90b2106ea42f4b3278ab66c92f.js": "/http//mikephan.github.io/portfolio/precache-manifest.13d91c90b2106ea42f4b3278ab66c92f.js",
+    "service-worker.js": "/http//mikephan.github.io/portfolio/service-worker.js",
+    "static/css/main.4ff03400.chunk.css.map": "/http//mikephan.github.io/portfolio/static/css/main.4ff03400.chunk.css.map",
+    "static/js/2.028df22c.chunk.js.LICENSE.txt": "/http//mikephan.github.io/portfolio/static/js/2.028df22c.chunk.js.LICENSE.txt",
+    "static/media/mikephan-resume.pdf": "/http//mikephan.github.io/portfolio/static/media/mikephan-resume.c5a2da89.pdf",
+    "static/media/natours-1.jpg": "/http//mikephan.github.io/portfolio/static/media/natours-1.7dd95e67.jpg",
+    "static/media/ohiostate.jpg": "/http//mikephan.github.io/portfolio/static/media/ohiostate.8f9a21fe.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.3c683bb4.js",
+    "static/js/2.028df22c.chunk.js",
+    "static/css/main.4ff03400.chunk.css",
+    "static/js/main.444ac912.chunk.js"
+  ]
+}
