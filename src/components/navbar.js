@@ -8,7 +8,7 @@ import { Link } from "react-scroll";
 import Headroom from "react-headroom";
 import ResumePDF from "../assets/mikephan-resume.pdf";
 
-export default function Navbar() {
+export default function NavBar() {
 	const [isMounted, setIsMounted] = useState(false);
 
 	useEffect(() => {
